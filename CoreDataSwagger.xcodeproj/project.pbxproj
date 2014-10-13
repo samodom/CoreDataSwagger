@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		0A12BB6B19EB3C4700859D0A /* CoreDataSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A12BB7119EB3C4700859D0A /* CoreDataSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A12BB6519EB3C4700859D0A /* CoreDataSwagger.framework */; };
-		0A12BB7819EB3C4700859D0A /* CoreDataSwaggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB7719EB3C4700859D0A /* CoreDataSwaggerTests.swift */; };
+		0A12BB8519EB3EEE00859D0A /* CoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8419EB3EEE00859D0A /* CoreDataStackTests.swift */; };
+		0A12BB8719EB481400859D0A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8619EB481400859D0A /* CoreDataStack.swift */; };
+		0A12BB8819EB488500859D0A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8619EB481400859D0A /* CoreDataStack.swift */; };
+		0A12BB8C19EB49AD00859D0A /* SampleModelOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8A19EB49AD00859D0A /* SampleModelOne.xcdatamodeld */; };
+		0A12BB8F19EB52C100859D0A /* SampleModelTwo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8D19EB52C100859D0A /* SampleModelTwo.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +32,11 @@
 		0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataSwagger.h; sourceTree = "<group>"; };
 		0A12BB7019EB3C4700859D0A /* CoreDataSwaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataSwaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A12BB7619EB3C4700859D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A12BB7719EB3C4700859D0A /* CoreDataSwaggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSwaggerTests.swift; sourceTree = "<group>"; };
+		0A12BB8319EB3EED00859D0A /* CoreDataSwaggerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataSwaggerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A12BB8419EB3EEE00859D0A /* CoreDataStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackTests.swift; sourceTree = "<group>"; };
+		0A12BB8619EB481400859D0A /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0A12BB8B19EB49AD00859D0A /* SampleModelOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModelOne.xcdatamodel; sourceTree = "<group>"; };
+		0A12BB8E19EB52C100859D0A /* SampleModelTwo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModelTwo.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 			children = (
 				0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */,
 				0A12BB6819EB3C4700859D0A /* Supporting Files */,
+				0A12BB8619EB481400859D0A /* CoreDataStack.swift */,
 			);
 			path = CoreDataSwagger;
 			sourceTree = "<group>";
@@ -88,8 +97,10 @@
 		0A12BB7419EB3C4700859D0A /* CoreDataSwaggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				0A12BB7719EB3C4700859D0A /* CoreDataSwaggerTests.swift */,
+				0A12BB8919EB499700859D0A /* Sample */,
 				0A12BB7519EB3C4700859D0A /* Supporting Files */,
+				0A12BB8119EB3D6C00859D0A /* Tests */,
+				0A12BB8219EB3D6C00859D0A /* Tools */,
 			);
 			path = CoreDataSwaggerTests;
 			sourceTree = "<group>";
@@ -100,6 +111,31 @@
 				0A12BB7619EB3C4700859D0A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0A12BB8119EB3D6C00859D0A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0A12BB8419EB3EEE00859D0A /* CoreDataStackTests.swift */,
+				0A12BB8319EB3EED00859D0A /* CoreDataSwaggerTests-Bridging-Header.h */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		0A12BB8219EB3D6C00859D0A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		0A12BB8919EB499700859D0A /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				0A12BB8A19EB49AD00859D0A /* SampleModelOne.xcdatamodeld */,
+				0A12BB8D19EB52C100859D0A /* SampleModelTwo.xcdatamodeld */,
+			);
+			path = Sample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A12BB8719EB481400859D0A /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +253,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A12BB7819EB3C4700859D0A /* CoreDataSwaggerTests.swift in Sources */,
+				0A12BB8F19EB52C100859D0A /* SampleModelTwo.xcdatamodeld in Sources */,
+				0A12BB8C19EB49AD00859D0A /* SampleModelOne.xcdatamodeld in Sources */,
+				0A12BB8519EB3EEE00859D0A /* CoreDataStackTests.swift in Sources */,
+				0A12BB8819EB488500859D0A /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,25 +359,30 @@
 		0A12BB7C19EB3C4700859D0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CoreDataSwagger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		0A12BB7D19EB3C4700859D0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CoreDataSwagger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -349,6 +394,7 @@
 		0A12BB7F19EB3C4700859D0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -360,12 +406,15 @@
 				INFOPLIST_FILE = CoreDataSwaggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoreDataSwaggerTests/Tests/CoreDataSwaggerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		0A12BB8019EB3C4700859D0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -373,6 +422,7 @@
 				INFOPLIST_FILE = CoreDataSwaggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoreDataSwaggerTests/Tests/CoreDataSwaggerTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -395,6 +445,7 @@
 				0A12BB7D19EB3C4700859D0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A12BB7E19EB3C4700859D0A /* Build configuration list for PBXNativeTarget "CoreDataSwaggerTests" */ = {
 			isa = XCConfigurationList;
@@ -403,8 +454,32 @@
 				0A12BB8019EB3C4700859D0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0A12BB8A19EB49AD00859D0A /* SampleModelOne.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A12BB8B19EB49AD00859D0A /* SampleModelOne.xcdatamodel */,
+			);
+			currentVersion = 0A12BB8B19EB49AD00859D0A /* SampleModelOne.xcdatamodel */;
+			path = SampleModelOne.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		0A12BB8D19EB52C100859D0A /* SampleModelTwo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A12BB8E19EB52C100859D0A /* SampleModelTwo.xcdatamodel */,
+			);
+			currentVersion = 0A12BB8E19EB52C100859D0A /* SampleModelTwo.xcdatamodel */;
+			path = SampleModelTwo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0A12BB5C19EB3C4700859D0A /* Project object */;
 }
