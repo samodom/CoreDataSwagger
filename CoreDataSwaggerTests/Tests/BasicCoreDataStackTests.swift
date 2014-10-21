@@ -1,5 +1,5 @@
 //
-//  CoreDataStackTests.swift
+//  BasicCoreDataStackTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/12/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class CoreDataStackTests: XCTestCase {
+class BasicCoreDataStackTests: XCTestCase {
 
     let datastoreFilename = "sampledatastore.sqlite"
     var datastoreURL: NSURL!
