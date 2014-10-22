@@ -14,6 +14,9 @@
 		0A12BB8819EB488500859D0A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8619EB481400859D0A /* CoreDataStack.swift */; };
 		0A12BB8C19EB49AD00859D0A /* SampleModelOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8A19EB49AD00859D0A /* SampleModelOne.xcdatamodeld */; };
 		0A12BB8F19EB52C100859D0A /* SampleModelTwo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8D19EB52C100859D0A /* SampleModelTwo.xcdatamodeld */; };
+		0A5758F419F5E9F300B08295 /* CoreDataStackSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */; };
+		0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A5758F919F5EC9800B08295 /* Produce.xcdatamodeld */; };
+		0A5758FD19F5ECBC00B08295 /* Produce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5758FC19F5ECBB00B08295 /* Produce.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		0A12BB8619EB481400859D0A /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0A12BB8B19EB49AD00859D0A /* SampleModelOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModelOne.xcdatamodel; sourceTree = "<group>"; };
 		0A12BB8E19EB52C100859D0A /* SampleModelTwo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModelTwo.xcdatamodel; sourceTree = "<group>"; };
+		0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackSaveTests.swift; sourceTree = "<group>"; };
+		0A5758FA19F5EC9800B08295 /* Produce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Produce.xcdatamodel; sourceTree = "<group>"; };
+		0A5758FC19F5ECBB00B08295 /* Produce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produce.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +84,9 @@
 		0A12BB6719EB3C4700859D0A /* CoreDataSwagger */ = {
 			isa = PBXGroup;
 			children = (
+				0A12BB8619EB481400859D0A /* CoreDataStack.swift */,
 				0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */,
 				0A12BB6819EB3C4700859D0A /* Supporting Files */,
-				0A12BB8619EB481400859D0A /* CoreDataStack.swift */,
 			);
 			path = CoreDataSwagger;
 			sourceTree = "<group>";
@@ -96,6 +102,7 @@
 		0A12BB7419EB3C4700859D0A /* CoreDataSwaggerTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A5758F819F5EC9800B08295 /* Data */,
 				0A12BB8919EB499700859D0A /* Sample */,
 				0A12BB7519EB3C4700859D0A /* Supporting Files */,
 				0A12BB8119EB3D6C00859D0A /* Tests */,
@@ -116,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				0A12BB8419EB3EEE00859D0A /* BasicCoreDataStackTests.swift */,
+				0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -134,6 +142,15 @@
 				0A12BB8D19EB52C100859D0A /* SampleModelTwo.xcdatamodeld */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		0A5758F819F5EC9800B08295 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0A5758FC19F5ECBB00B08295 /* Produce.swift */,
+				0A5758F919F5EC9800B08295 /* Produce.xcdatamodeld */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,7 +270,10 @@
 			files = (
 				0A12BB8F19EB52C100859D0A /* SampleModelTwo.xcdatamodeld in Sources */,
 				0A12BB8C19EB49AD00859D0A /* SampleModelOne.xcdatamodeld in Sources */,
+				0A5758FD19F5ECBC00B08295 /* Produce.swift in Sources */,
+				0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */,
 				0A12BB8519EB3EEE00859D0A /* BasicCoreDataStackTests.swift in Sources */,
+				0A5758F419F5E9F300B08295 /* CoreDataStackSaveTests.swift in Sources */,
 				0A12BB8819EB488500859D0A /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +492,16 @@
 			);
 			currentVersion = 0A12BB8E19EB52C100859D0A /* SampleModelTwo.xcdatamodel */;
 			path = SampleModelTwo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		0A5758F919F5EC9800B08295 /* Produce.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A5758FA19F5EC9800B08295 /* Produce.xcdatamodel */,
+			);
+			currentVersion = 0A5758FA19F5EC9800B08295 /* Produce.xcdatamodel */;
+			path = Produce.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -8,6 +8,8 @@
 
 import CoreData
 
+public typealias CoreDataPerformClosure = () -> Void
+
 public class CoreDataStack {
     public let model: NSManagedObjectModel
     public let coordinator: NSPersistentStoreCoordinator
@@ -36,5 +38,16 @@ public class CoreDataStack {
         rootContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         rootContext.persistentStoreCoordinator = coordinator
     }
-}
 
+    public func save(closure: CoreDataPerformClosure? = nil) -> (Bool, NSError?) {
+        var success = false
+        var error: NSError?
+        rootContext.performBlockAndWait {
+            closure?()
+            success = self.rootContext.save(&error)
+        }
+
+        return (success, error)
+    }
+
+}

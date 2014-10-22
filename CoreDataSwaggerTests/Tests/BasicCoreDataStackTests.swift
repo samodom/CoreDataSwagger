@@ -48,9 +48,10 @@ class BasicCoreDataStackTests: XCTestCase {
     func testCoreDataStackHasMergedManagedObjectModel() {
         let model = stack.model
         let entities = model.entitiesByName as [String:NSEntityDescription]
-        XCTAssertEqual(entities.count, 2, "There should be two different entities merged from two different models")
+        XCTAssertEqual(entities.count, 3, "There should be two different entities merged from two different models")
         XCTAssertTrue(entities["EntityOne"] != nil, "An entity named 'EntityOne' should be included in the merged model")
         XCTAssertTrue(entities["EntityTwo"] != nil, "An entity named 'EntityTwo' should be included in the merged model")
+        XCTAssertTrue(entities["Fruit"] != nil, "An entity named 'Fruit' should be included in the merged model")
     }
 
     func testCoreDataStackHasRootManagedObjectContext() {
