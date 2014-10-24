@@ -17,6 +17,7 @@
 		0A5758F419F5E9F300B08295 /* CoreDataStackSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */; };
 		0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A5758F919F5EC9800B08295 /* Produce.xcdatamodeld */; };
 		0A5758FD19F5ECBC00B08295 /* Produce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5758FC19F5ECBB00B08295 /* Produce.swift */; };
+		0A71197719F72EBE001764AF /* CoreDataStackFetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71197619F72EBE001764AF /* CoreDataStackFetchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackSaveTests.swift; sourceTree = "<group>"; };
 		0A5758FA19F5EC9800B08295 /* Produce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Produce.xcdatamodel; sourceTree = "<group>"; };
 		0A5758FC19F5ECBB00B08295 /* Produce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produce.swift; sourceTree = "<group>"; };
+		0A71197619F72EBE001764AF /* CoreDataStackFetchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackFetchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				0A12BB8419EB3EEE00859D0A /* BasicCoreDataStackTests.swift */,
+				0A71197619F72EBE001764AF /* CoreDataStackFetchTests.swift */,
 				0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */,
 			);
 			path = Tests;
@@ -274,6 +277,7 @@
 				0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */,
 				0A12BB8519EB3EEE00859D0A /* BasicCoreDataStackTests.swift in Sources */,
 				0A5758F419F5E9F300B08295 /* CoreDataStackSaveTests.swift in Sources */,
+				0A71197719F72EBE001764AF /* CoreDataStackFetchTests.swift in Sources */,
 				0A12BB8819EB488500859D0A /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

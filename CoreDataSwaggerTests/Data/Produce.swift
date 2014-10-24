@@ -8,12 +8,26 @@
 
 import CoreData
 
-public class Fruit: NSManagedObject {
+public class Produce: NSManagedObject {
     @NSManaged var name: String!
     @NSManaged var color: String!
-    convenience init(context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: context)!
+    private convenience init(name: String, color: String, entity: NSEntityDescription, context: NSManagedObjectContext) {
         self.init(entity: entity, insertIntoManagedObjectContext: context)
+        self.name = name
+        self.color = color
     }
 }
 
+public class Fruit: Produce {
+    public convenience init(name: String, color: String, context: NSManagedObjectContext) {
+        let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: context)!
+        self.init(name: name, color: color, entity: entity, context: context)
+    }
+}
+
+public class Vegetable: Produce {
+    public convenience init(name: String, color: String, context: NSManagedObjectContext) {
+        let entity = NSEntityDescription.entityForName("Vegetable", inManagedObjectContext: context)!
+        self.init(name: name, color: color, entity: entity, context: context)
+    }
+}

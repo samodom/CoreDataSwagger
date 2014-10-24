@@ -39,6 +39,10 @@ public class CoreDataStack {
         rootContext.persistentStoreCoordinator = coordinator
     }
 
+}
+
+extension CoreDataStack {
+
     public func save(closure: CoreDataPerformClosure? = nil) -> (Bool, NSError?) {
         var success = false
         var error: NSError?
@@ -48,6 +52,18 @@ public class CoreDataStack {
         }
 
         return (success, error)
+    }
+
+}
+
+public typealias CoreDataFetchResults = ([NSManagedObject]?, NSError?)
+
+extension CoreDataStack {
+
+    public func fetch(request: NSFetchRequest) -> CoreDataFetchResults {
+        var error: NSError?
+        let results = rootContext.executeFetchRequest(request, error: &error) as [NSManagedObject]?
+        return (results, error)
     }
 
 }

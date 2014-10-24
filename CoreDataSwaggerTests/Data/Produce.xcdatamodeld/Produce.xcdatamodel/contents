@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A388a" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Fruit" representedClassName="CoreDataSwaggerTests.Fruit" syncable="YES">
+    <entity name="Fruit" representedClassName="CoreDataSwaggerTests.Fruit" parentEntity="Produce" syncable="YES"/>
+    <entity name="Produce" representedClassName="CoreDataSwaggerTests.Produce" isAbstract="YES" syncable="YES">
         <attribute name="color" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" minValueString="4" syncable="YES"/>
     </entity>
+    <entity name="Vegetable" representedClassName="CoreDataSwaggerTests.Vegetable" parentEntity="Produce" syncable="YES"/>
     <elements>
-        <element name="Fruit" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Fruit" positionX="-63" positionY="-18" width="128" height="43"/>
+        <element name="Produce" positionX="-63" positionY="0" width="128" height="73"/>
+        <element name="Vegetable" positionX="-54" positionY="18" width="128" height="43"/>
     </elements>
 </model>

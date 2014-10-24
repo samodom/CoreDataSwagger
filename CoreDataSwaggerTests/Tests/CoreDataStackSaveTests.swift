@@ -20,7 +20,7 @@ class CoreDataStackSaveTests: XCTestCase {
         super.setUp()
 
         stack = CoreDataStack()
-        fruit = Fruit(context: stack.rootContext)
+        fruit = Fruit(name: "Apple", color: "red", context: stack.rootContext)
     }
     
     override func tearDown() {
@@ -42,6 +42,7 @@ class CoreDataStackSaveTests: XCTestCase {
 
     func testFailingContextSave() {
         fruit.name = "Orange"
+        fruit.color = nil
         (success, error) = stack.save()
         XCTAssertFalse(success, "The save should indicate failure")
         XCTAssertTrue(stack.rootContext.hasChanges, "The context should still have changes")
@@ -63,6 +64,7 @@ class CoreDataStackSaveTests: XCTestCase {
     func testFailingSynchronousSave() {
         (success, error) = stack.save() {
             self.fruit.name = "Orange"
+            self.fruit.color = nil
         }
         XCTAssertFalse(success, "The save should indicate failure")
         XCTAssertTrue(stack.rootContext.hasChanges, "The context should still have changes")
