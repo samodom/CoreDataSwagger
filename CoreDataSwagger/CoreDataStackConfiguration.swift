@@ -26,3 +26,16 @@ public enum CoreDataModelSource {
     }
 
 }
+
+public typealias CoreDataStoreOptions = [String:AnyObject]
+public typealias CoreDataModelConfiguration = String
+
+public enum CoreDataStoreParameters {
+    case InMemory(configuration: CoreDataModelConfiguration?, options: CoreDataStoreOptions?)
+    case SQLite(URL: NSURL, configuration: CoreDataModelConfiguration?, options: CoreDataStoreOptions?)
+    case Binary(URL: NSURL, configuration: CoreDataModelConfiguration?, options: CoreDataStoreOptions?)
+
+    public init() {
+        self = InMemory(configuration: nil, options: nil)
+    }
+}
