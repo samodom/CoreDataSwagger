@@ -93,8 +93,6 @@ class CoreDataModelSourceTests: XCTestCase {
         }
     }
 
-    //    case ModelMerge(models: [NSManagedObjectModel], metadata: [NSObject:AnyObject]?)
-
     func testModelMergeWithSomeModelsNoMetadata() {
         modelSource = CoreDataModelSource(models: sampleModels)
         switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
