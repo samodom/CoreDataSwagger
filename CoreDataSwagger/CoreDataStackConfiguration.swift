@@ -20,20 +20,28 @@ public class CoreDataStackConfiguration {
     }
 }
 
+public typealias CoreDataStoreMetaData = [NSObject:AnyObject]
+
 public enum CoreDataModelSource {
     case URLContents(NSURL)
-    case BundleMerge(bundles: [NSBundle]?, metadata: [NSObject:AnyObject]?)
-    case ModelMerge(models: [NSManagedObjectModel], metadata: [NSObject:AnyObject]?)
+    case MainBundleMerge(metadata: CoreDataStoreMetaData?)
+    case BundleMerge(bundles: [NSBundle]?, metadata: CoreDataStoreMetaData?)
+    case ModelMerge(models: [NSManagedObjectModel], metadata: CoreDataStoreMetaData?)
 
     public init(contentURL: NSURL) {
         self = URLContents(contentURL)
     }
 
-    public init(bundles: [NSBundle]? = nil, metadata: [NSObject:AnyObject]? = nil) {
-        self = BundleMerge(bundles: bundles, metadata: metadata)
+    public init(bundles: [NSBundle]? = nil, metadata: CoreDataStoreMetaData? = nil) {
+        if bundles == nil {
+            self = MainBundleMerge(metadata: metadata)
+        }
+        else {
+            self = BundleMerge(bundles: bundles, metadata: metadata)
+        }
     }
 
-    public init(models: [NSManagedObjectModel], metadata: [NSObject:AnyObject]? = nil) {
+    public init(models: [NSManagedObjectModel], metadata: CoreDataStoreMetaData? = nil) {
         self = ModelMerge(models: models, metadata: metadata)
     }
 

@@ -12,7 +12,7 @@ import XCTest
 class CoreDataModelSourceTests: XCTestCase {
 
     var modelSource: CoreDataModelSource!
-    let sampleMetadata = [ "one": "two", "three": "four" ] as [NSObject:AnyObject]
+    let sampleMetadata = [ "one": "two", "three": "four" ] as CoreDataStoreMetaData
     let sampleBundles = [ NSBundle(), NSBundle() ]
     let sampleModels = [ NSManagedObjectModel(), NSManagedObjectModel() ]
 
@@ -37,35 +37,34 @@ class CoreDataModelSourceTests: XCTestCase {
         }
     }
 
-    func testBundleMergeWithAllBundlesNoMetadata() {
+    func testMainBundleMergeNoMetadata() {
         modelSource = CoreDataModelSource()
         switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
-        case .BundleMerge(let bundles, let metadata):
-            XCTAssert(true, "The source type should be a bundle merge")
-            XCTAssertTrue(bundles == nil, "The source should use a nil bundles value to specify all bundles")
+        case .MainBundleMerge(let metadata):
+            XCTAssert(true, "The source type should be a main bundle merge")
             XCTAssertTrue(metadata == nil, "The source's metadata should be nil")
 
         default:
-            XCTFail("The source type created should be a bundle merge")
+            XCTFail("The source type created should be a main bundle merge")
         }
     }
 
-    func testBundleMergeWithAllBundlesWithMetadata() {
+    func testMainBundleMergeWithMetadata() {
         modelSource = CoreDataModelSource(metadata: sampleMetadata)
         switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
-        case .BundleMerge(let bundles, let metadata):
-            XCTAssert(true, "The source type should be a bundle merge")
-            XCTAssertTrue(bundles == nil, "The source should use a nil bundles value to specify all bundles")
-            XCTAssertEqual(metadata!.count, 2, "The provided dictionary had two members")
-            XCTAssertEqual(metadata!["one"] as String, "two", "The source should use the metadata provided")
-            XCTAssertEqual(metadata!["three"] as String, "four", "The source should use the metadata provided")
+        case .MainBundleMerge(let metadata):
+            XCTAssert(true, "The source type should be a main bundle merge")
+            let cast = metadata as [NSObject:AnyObject]!  //  FIXME: why do I have to cast this?
+            XCTAssertEqual(cast.count, 2, "The provided dictionary had two members")
+            XCTAssertEqual(cast["one"] as String, "two", "The source should use the metadata provided")
+            XCTAssertEqual(cast["three"] as String, "four", "The source should use the metadata provided")
 
         default:
-            XCTFail("The source type created should be a bundle merge")
+            XCTFail("The source type created should be a main bundle merge")
         }
     }
 
-    func testBundleMergeWithSomeBundlesNoMetadata() {
+    func testBundleMergeNoMetadata() {
         modelSource = CoreDataModelSource(bundles: sampleBundles)
         switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
         case .BundleMerge(let bundles, let metadata):
@@ -78,7 +77,7 @@ class CoreDataModelSourceTests: XCTestCase {
         }
     }
 
-    func testBundleMergeWithSomeBundlesAndMetadata() {
+    func testBundleMergeWithMetadata() {
         modelSource = CoreDataModelSource(bundles: sampleBundles, metadata: sampleMetadata)
         switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
         case .BundleMerge(let bundles, let metadata):
@@ -93,7 +92,7 @@ class CoreDataModelSourceTests: XCTestCase {
         }
     }
 
-    func testModelMergeWithSomeModelsNoMetadata() {
+    func testModelMergeNoMetadata() {
         modelSource = CoreDataModelSource(models: sampleModels)
         switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
         case .ModelMerge(let models, let metadata):
@@ -106,7 +105,7 @@ class CoreDataModelSourceTests: XCTestCase {
         }
     }
 
-    func testModelMergeWithSomeModelsAndMetadata() {
+    func testModelMergeWithMetadata() {
         modelSource = CoreDataModelSource(models: sampleModels, metadata: sampleMetadata)
         switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
         case .ModelMerge(let models, let metadata):
