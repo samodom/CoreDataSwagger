@@ -14,6 +14,7 @@
 		0A12BB8819EB488500859D0A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8619EB481400859D0A /* CoreDataStack.swift */; };
 		0A12BB8C19EB49AD00859D0A /* SampleModelOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8A19EB49AD00859D0A /* SampleModelOne.xcdatamodeld */; };
 		0A12BB8F19EB52C100859D0A /* SampleModelTwo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8D19EB52C100859D0A /* SampleModelTwo.xcdatamodeld */; };
+		0A151C4819F9D94100EB2DB3 /* CoreDataStackConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A151C4719F9D94100EB2DB3 /* CoreDataStackConfigurationTests.swift */; };
 		0A151C4A19F9D9E400EB2DB3 /* CoreDataStackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A151C4919F9D9E400EB2DB3 /* CoreDataStackConfiguration.swift */; };
 		0A151C4B19F9DABA00EB2DB3 /* CoreDataStackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A151C4919F9D9E400EB2DB3 /* CoreDataStackConfiguration.swift */; };
 		0A151C4F19FA021A00EB2DB3 /* CoreDataModelSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A151C4E19FA021A00EB2DB3 /* CoreDataModelSourceTests.swift */; };
@@ -44,6 +45,7 @@
 		0A12BB8619EB481400859D0A /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0A12BB8B19EB49AD00859D0A /* SampleModelOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModelOne.xcdatamodel; sourceTree = "<group>"; };
 		0A12BB8E19EB52C100859D0A /* SampleModelTwo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModelTwo.xcdatamodel; sourceTree = "<group>"; };
+		0A151C4719F9D94100EB2DB3 /* CoreDataStackConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackConfigurationTests.swift; sourceTree = "<group>"; };
 		0A151C4919F9D9E400EB2DB3 /* CoreDataStackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackConfiguration.swift; sourceTree = "<group>"; };
 		0A151C4E19FA021A00EB2DB3 /* CoreDataModelSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModelSourceTests.swift; sourceTree = "<group>"; };
 		0A151C5019FA0D4300EB2DB3 /* CoreDataStoreParameterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStoreParameterTests.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				0A12BB8419EB3EEE00859D0A /* BasicCoreDataStackTests.swift */,
 				0A151C4E19FA021A00EB2DB3 /* CoreDataModelSourceTests.swift */,
+				0A151C4719F9D94100EB2DB3 /* CoreDataStackConfigurationTests.swift */,
 				0A71197619F72EBE001764AF /* CoreDataStackFetchTests.swift */,
 				0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */,
 				0A151C5019FA0D4300EB2DB3 /* CoreDataStoreParameterTests.swift */,
@@ -288,6 +291,7 @@
 				0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */,
 				0A12BB8519EB3EEE00859D0A /* BasicCoreDataStackTests.swift in Sources */,
 				0A151C4F19FA021A00EB2DB3 /* CoreDataModelSourceTests.swift in Sources */,
+				0A151C4819F9D94100EB2DB3 /* CoreDataStackConfigurationTests.swift in Sources */,
 				0A151C4B19F9DABA00EB2DB3 /* CoreDataStackConfiguration.swift in Sources */,
 				0A151C5119FA0D4300EB2DB3 /* CoreDataStoreParameterTests.swift in Sources */,
 				0A5758F419F5E9F300B08295 /* CoreDataStackSaveTests.swift in Sources */,

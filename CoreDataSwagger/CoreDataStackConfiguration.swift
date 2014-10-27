@@ -8,6 +8,18 @@
 
 import CoreData
 
+public class CoreDataStackConfiguration {
+    public let contextConcurrencyType: NSManagedObjectContextConcurrencyType
+    public let modelSource: CoreDataModelSource
+    public let storeParameters: [CoreDataStoreParameters]
+
+    public init(concurrency: NSManagedObjectContextConcurrencyType = .MainQueueConcurrencyType, modelSource: CoreDataModelSource = CoreDataModelSource(), storeParameters: [CoreDataStoreParameters] = [CoreDataStoreParameters()]) {
+        contextConcurrencyType = concurrency
+        self.modelSource = modelSource
+        self.storeParameters = storeParameters
+    }
+}
+
 public enum CoreDataModelSource {
     case URLContents(NSURL)
     case BundleMerge(bundles: [NSBundle]?, metadata: [NSObject:AnyObject]?)
