@@ -35,13 +35,12 @@ class CoreDataStackConfigurationTests: XCTestCase {
         XCTAssertEqual(configuration.contextConcurrencyType, NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType, "The default context concurrency should use the main queue")
 
         switch configuration.modelSource {
-        case .BundleMerge(let bundles, let metadata):
-            XCTAssert(true, "The default configuration should use a bundle merge as a model source")
-            XCTAssertTrue(bundles == nil, "The default configuration should use a bundle merge with all bundles")
+        case .MainBundleMerge(let metadata):
+            XCTAssert(true, "The default configuration should use a main bundle merge as a model source")
             XCTAssertTrue(metadata == nil, "The default configuration should use a model source without metadata")
 
         default:
-            XCTFail("The default configuration should use a bundle merge as a model source")
+            XCTFail("The default configuration should use a main bundle merge as a model source")
         }
 
         XCTAssertEqual(configuration.storeParameters.count, 1, "There should only be one set of store parameters in a default configuration")

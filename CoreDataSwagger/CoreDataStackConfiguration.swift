@@ -9,6 +9,7 @@
 import CoreData
 
 public class CoreDataStackConfiguration {
+
     public let contextConcurrencyType: NSManagedObjectContextConcurrencyType
     public let modelSource: CoreDataModelSource
     public let storeParameters: [CoreDataStoreParameters]
@@ -18,11 +19,13 @@ public class CoreDataStackConfiguration {
         self.modelSource = modelSource
         self.storeParameters = storeParameters
     }
+
 }
 
 public typealias CoreDataStoreMetaData = [NSObject:AnyObject]
 
 public enum CoreDataModelSource {
+
     case URLContents(NSURL)
     case MainBundleMerge(metadata: CoreDataStoreMetaData?)
     case BundleMerge(bundles: [NSBundle]?, metadata: CoreDataStoreMetaData?)
@@ -51,6 +54,7 @@ public typealias CoreDataStoreOptions = [NSString:AnyObject]
 public typealias CoreDataModelConfiguration = NSString
 
 public enum CoreDataStoreParameters {
+
     case InMemory(configuration: CoreDataModelConfiguration?, options: CoreDataStoreOptions?)
     case SQLite(URL: NSURL, configuration: CoreDataModelConfiguration?, options: CoreDataStoreOptions?)
     case Binary(URL: NSURL, configuration: CoreDataModelConfiguration?, options: CoreDataStoreOptions?)
@@ -58,4 +62,5 @@ public enum CoreDataStoreParameters {
     public init() {
         self = InMemory(configuration: nil, options: nil)
     }
+
 }

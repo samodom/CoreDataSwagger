@@ -19,7 +19,10 @@ class CoreDataStackSaveTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        stack = CoreDataStack()
+        let bundles = NSBundle.allBundles() as [NSBundle]
+        let modelSource = CoreDataModelSource(bundles: bundles)
+        let configuration = CoreDataStackConfiguration(modelSource: modelSource)
+        stack = CoreDataStack(configuration: configuration)
         fruit = Fruit(name: "Apple", color: "red", context: stack.rootContext)
     }
     

@@ -11,7 +11,7 @@ import XCTest
 
 class CoreDataStackFetchTests: XCTestCase {
 
-    var stack = CoreDataStack()
+    var stack: CoreDataStack!
     var request: NSFetchRequest!
     var results: [NSManagedObject]?
     var error: NSError?
@@ -23,6 +23,10 @@ class CoreDataStackFetchTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        let bundles = NSBundle.allBundles() as [NSBundle]
+        let modelSource = CoreDataModelSource(bundles: bundles)
+        let configuration = CoreDataStackConfiguration(modelSource: modelSource)
+        stack = CoreDataStack(configuration: configuration)
         createProduce()
     }
     
