@@ -47,8 +47,8 @@ public enum CoreDataModelSource {
 
 }
 
-public typealias CoreDataStoreOptions = [String:AnyObject]
-public typealias CoreDataModelConfiguration = String
+public typealias CoreDataStoreOptions = [NSString:AnyObject]
+public typealias CoreDataModelConfiguration = NSString
 
 public enum CoreDataStoreParameters {
     case InMemory(configuration: CoreDataModelConfiguration?, options: CoreDataStoreOptions?)

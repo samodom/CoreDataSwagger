@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A07EEA919FEAFE000ADB3F6 /* NSManagedObjectModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A07EEA819FEAFE000ADB3F6 /* NSManagedObjectModelExtensions.swift */; };
+		0A07EEAA19FEB27C00ADB3F6 /* NSManagedObjectModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A07EEA819FEAFE000ADB3F6 /* NSManagedObjectModelExtensions.swift */; };
 		0A12BB6B19EB3C4700859D0A /* CoreDataSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A12BB7119EB3C4700859D0A /* CoreDataSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A12BB6519EB3C4700859D0A /* CoreDataSwagger.framework */; };
 		0A12BB8519EB3EEE00859D0A /* BasicCoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8419EB3EEE00859D0A /* BasicCoreDataStackTests.swift */; };
@@ -23,6 +25,7 @@
 		0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A5758F919F5EC9800B08295 /* Produce.xcdatamodeld */; };
 		0A5758FD19F5ECBC00B08295 /* Produce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5758FC19F5ECBB00B08295 /* Produce.swift */; };
 		0A71197719F72EBE001764AF /* CoreDataStackFetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71197619F72EBE001764AF /* CoreDataStackFetchTests.swift */; };
+		0ABBC4F719FEA842004E562A /* ModelCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBC4F619FEA842004E562A /* ModelCreationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A07EEA819FEAFE000ADB3F6 /* NSManagedObjectModelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectModelExtensions.swift; sourceTree = "<group>"; };
 		0A12BB6519EB3C4700859D0A /* CoreDataSwagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataSwagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A12BB6919EB3C4700859D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataSwagger.h; sourceTree = "<group>"; };
@@ -53,6 +57,7 @@
 		0A5758FA19F5EC9800B08295 /* Produce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Produce.xcdatamodel; sourceTree = "<group>"; };
 		0A5758FC19F5ECBB00B08295 /* Produce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produce.swift; sourceTree = "<group>"; };
 		0A71197619F72EBE001764AF /* CoreDataStackFetchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackFetchTests.swift; sourceTree = "<group>"; };
+		0ABBC4F619FEA842004E562A /* ModelCreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCreationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +103,7 @@
 				0A12BB8619EB481400859D0A /* CoreDataStack.swift */,
 				0A151C4919F9D9E400EB2DB3 /* CoreDataStackConfiguration.swift */,
 				0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */,
+				0A07EEA819FEAFE000ADB3F6 /* NSManagedObjectModelExtensions.swift */,
 				0A12BB6819EB3C4700859D0A /* Supporting Files */,
 			);
 			path = CoreDataSwagger;
@@ -140,6 +146,7 @@
 				0A71197619F72EBE001764AF /* CoreDataStackFetchTests.swift */,
 				0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */,
 				0A151C5019FA0D4300EB2DB3 /* CoreDataStoreParameterTests.swift */,
+				0ABBC4F619FEA842004E562A /* ModelCreationTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -276,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A07EEA919FEAFE000ADB3F6 /* NSManagedObjectModelExtensions.swift in Sources */,
 				0A151C4A19F9D9E400EB2DB3 /* CoreDataStackConfiguration.swift in Sources */,
 				0A12BB8719EB481400859D0A /* CoreDataStack.swift in Sources */,
 			);
@@ -296,7 +304,9 @@
 				0A151C5119FA0D4300EB2DB3 /* CoreDataStoreParameterTests.swift in Sources */,
 				0A5758F419F5E9F300B08295 /* CoreDataStackSaveTests.swift in Sources */,
 				0A71197719F72EBE001764AF /* CoreDataStackFetchTests.swift in Sources */,
+				0ABBC4F719FEA842004E562A /* ModelCreationTests.swift in Sources */,
 				0A12BB8819EB488500859D0A /* CoreDataStack.swift in Sources */,
+				0A07EEAA19FEB27C00ADB3F6 /* NSManagedObjectModelExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
