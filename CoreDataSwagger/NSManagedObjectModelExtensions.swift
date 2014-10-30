@@ -27,12 +27,7 @@ public extension NSManagedObjectModel {
             return createFromBundleMerge(bundles, metadata: metadata)
 
         case .ModelMerge(let models, let metadata):
-            if metadata != nil {
-                return NSManagedObjectModel(byMergingModels: models, forStoreMetadata: metadata!)
-            }
-            else {
-                return NSManagedObjectModel(byMergingModels: models)
-            }
+            return createFromModelMerge(models, metadata: metadata)
         }
     }
 
@@ -41,9 +36,16 @@ public extension NSManagedObjectModel {
             return NSManagedObjectModel.mergedModelFromBundles(bundles, forStoreMetadata: metadata!)
         }
         else {
-            NSLog("Bundles: \(bundles)")
             return NSManagedObjectModel.mergedModelFromBundles(bundles)
         }
+    }
 
+    private class func createFromModelMerge(models: [NSManagedObjectModel], metadata: CoreDataStoreMetaData?) -> NSManagedObjectModel? {
+        if metadata != nil {
+            return NSManagedObjectModel(byMergingModels: models, forStoreMetadata: metadata!)
+        }
+        else {
+            return NSManagedObjectModel(byMergingModels: models)
+        }
     }
 }

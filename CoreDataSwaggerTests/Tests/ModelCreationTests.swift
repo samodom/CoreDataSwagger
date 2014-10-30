@@ -51,7 +51,14 @@ class ModelCreationTests: XCTestCase {
         metadata = CreateMainBundleMetadata()
         source = CoreDataModelSource(metadata: metadata)
         model = NSManagedObjectModel.createFromSource(source)
-        XCTAssertTrue(model == nil, "A model creation should be attempted by merging the models from the main bundle - there are no models in the main bundle here")
+        XCTAssertTrue(model == nil, "A model creation should be created by merging the models from the main bundle using the provided metadata, but it doesn't!")
+    }
+
+    func testFailingModelCreationWithMainBundleMergeIncompatibleMetadata() {
+        metadata = CreateAllBundlesMetadata()
+        source = CoreDataModelSource(metadata: metadata)
+        model = NSManagedObjectModel.createFromSource(source)
+        XCTAssertTrue(model == nil, "A model creation should be attempted by merging the models from the main bundle, but it should fail due to incompatible metadata")
     }
 
     func testModelCreationWithBundleMergeNoMetadata() {
@@ -83,6 +90,15 @@ class ModelCreationTests: XCTestCase {
         XCTAssertTrue(entities["Vegetable"] != nil, "The 'Vegetable' entity from the second model should be included")
     }
 
+    func testFailingModelCreationWithBundleMergeIncompatibleMetadata() {
+        metadata = CreateAllBundlesMetadata()
+        let bundleOne = BundleForModel(named: "SampleModelTwo")
+        let bundleTwo = BundleForModel(named: "Produce")
+        source = CoreDataModelSource(bundles: [bundleOne, bundleTwo], metadata: metadata)
+        model = NSManagedObjectModel.createFromSource(source)
+        XCTAssertTrue(model == nil, "A model creation should be attempted by merging the models provided, but it should fail due to incompatible metadata")
+    }
+
     func testModelCreationWithAllBundlesMergeNoMetadata() {
         source = CoreDataModelSource.AllBundlesMerge(metadata: nil)
         model = NSManagedObjectModel.createFromSource(source)
@@ -108,6 +124,13 @@ class ModelCreationTests: XCTestCase {
         XCTAssertTrue(entities["Produce"] != nil, "The 'Produce' entity from the second model should be included")
         XCTAssertTrue(entities["Fruit"] != nil, "The 'Fruit' entity from the second model should be included")
         XCTAssertTrue(entities["Vegetable"] != nil, "The 'Vegetable' entity from the second model should be included")
+    }
+
+    func testFailingModelCreationWithAllBundlesMergeIncompatibleMetadata() {
+        metadata = ["one": "two", "three": "four"]
+        source = CoreDataModelSource.AllBundlesMerge(metadata: metadata)
+        model = NSManagedObjectModel.createFromSource(source)
+        XCTAssertTrue(model == nil, "A model creation should be attempted by merging the models in all of the bundles, but it should fail due to incompatible metadata")
     }
 
     func testModelCreationWithModelMergeNoMetadata() {
@@ -137,6 +160,15 @@ class ModelCreationTests: XCTestCase {
         XCTAssertTrue(entities["Produce"] != nil, "The 'Produce' entity from the second model should be included")
         XCTAssertTrue(entities["Fruit"] != nil, "The 'Fruit' entity from the second model should be included")
         XCTAssertTrue(entities["Vegetable"] != nil, "The 'Vegetable' entity from the second model should be included")
+    }
+
+    func testFailingModelCreationWithModelMergeIncompatibleMetadata() {
+        metadata = CreateAllBundlesMetadata()
+        let modelOne = LoadModel(named: "SampleModelTwo")
+        let modelTwo = LoadModel(named: "Produce")
+        source = CoreDataModelSource(models: [modelOne, modelTwo], metadata: metadata)
+        model = NSManagedObjectModel.createFromSource(source)
+        XCTAssertTrue(model == nil, "A model creation should be attempted by merging the models from the main bundle, but it should fail due to incompatible metadata")
     }
 
 }
@@ -170,6 +202,7 @@ private func LoadModel(named name: String) -> NSManagedObjectModel! {
 
 private func CreateMainBundleMetadata() -> CoreDataStoreMetaData {
     let model = NSManagedObjectModel.mergedModelFromBundles(nil)!
+    NSLog("Test model: \(model)")
     let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
     let store = coordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)!
     return store.metadata
