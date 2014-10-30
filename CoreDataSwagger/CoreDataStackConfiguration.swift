@@ -28,6 +28,7 @@ public enum CoreDataModelSource {
 
     case URLContents(NSURL)
     case MainBundleMerge(metadata: CoreDataStoreMetaData?)
+    case AllBundlesMerge(metadata: CoreDataStoreMetaData?)
     case BundleMerge(bundles: [NSBundle]?, metadata: CoreDataStoreMetaData?)
     case ModelMerge(models: [NSManagedObjectModel], metadata: CoreDataStoreMetaData?)
 

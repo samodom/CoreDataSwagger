@@ -16,13 +16,15 @@ public extension NSManagedObjectModel {
         case .URLContents(let URL):
             return NSManagedObjectModel(contentsOfURL: URL)
 
+        case .MainBundleMerge(let metadata):
+            return createFromBundleMerge(nil, metadata: metadata)
+
+        case .AllBundlesMerge(let metadata):
+            let bundles = NSBundle.allBundles() as [NSBundle]
+            return createFromBundleMerge(bundles, metadata: metadata)
+
         case .BundleMerge(let bundles, let metadata):
-            if metadata != nil {
-                return NSManagedObjectModel.mergedModelFromBundles(bundles, forStoreMetadata: metadata!)
-            }
-            else {
-                return NSManagedObjectModel.mergedModelFromBundles(bundles)
-            }
+            return createFromBundleMerge(bundles, metadata: metadata)
 
         case .ModelMerge(let models, let metadata):
             if metadata != nil {
@@ -31,10 +33,17 @@ public extension NSManagedObjectModel {
             else {
                 return NSManagedObjectModel(byMergingModels: models)
             }
-
-        default:
-            return nil
         }
     }
 
+    private class func createFromBundleMerge(bundles: [NSBundle]?, metadata: CoreDataStoreMetaData?) -> NSManagedObjectModel? {
+        if metadata != nil {
+            return NSManagedObjectModel.mergedModelFromBundles(bundles, forStoreMetadata: metadata!)
+        }
+        else {
+            NSLog("Bundles: \(bundles)")
+            return NSManagedObjectModel.mergedModelFromBundles(bundles)
+        }
+
+    }
 }

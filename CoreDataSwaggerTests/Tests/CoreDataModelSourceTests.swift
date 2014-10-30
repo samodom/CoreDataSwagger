@@ -64,6 +64,33 @@ class CoreDataModelSourceTests: XCTestCase {
         }
     }
 
+    func testAllBundlesMergeNoMetadata() {
+        modelSource = CoreDataModelSource.AllBundlesMerge(metadata: nil)
+        switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
+        case .AllBundlesMerge(let metadata):
+            XCTAssert(true, "The source type should be an all bundles merge")
+            XCTAssertTrue(metadata == nil, "The source's metadata should be nil")
+
+        default:
+            XCTFail("The source type created should be an all bundles merge")
+        }
+    }
+
+    func testAllBundlesMergeWithMetadata() {
+        modelSource = CoreDataModelSource.AllBundlesMerge(metadata: sampleMetadata)
+        switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
+        case .AllBundlesMerge(let metadata):
+            let data = metadata as CoreDataStoreMetaData!  //  FIXME: why do I have to do this?
+            XCTAssert(true, "The source type should be an all bundles merge")
+            XCTAssertEqual(data.count, 2, "The provided dictionary had two members")
+            XCTAssertEqual(data["one"] as String, "two", "The source should use the metadata provided")
+            XCTAssertEqual(data["three"] as String, "four", "The source should use the metadata provided")
+
+        default:
+            XCTFail("The source type created should be an all bundles merge")
+        }
+    }
+
     func testBundleMergeNoMetadata() {
         modelSource = CoreDataModelSource(bundles: sampleBundles)
         switch modelSource! { //  FIXME: why does this need to be unwrapped?!?!
