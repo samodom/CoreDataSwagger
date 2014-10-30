@@ -64,4 +64,55 @@ public enum CoreDataStoreParameters {
         self = InMemory(configuration: nil, options: nil)
     }
 
+    public func storeType() -> NSString {
+        switch self {
+        case .InMemory(_, _):
+            return NSInMemoryStoreType
+
+        case .SQLite(_, _, _):
+            return NSSQLiteStoreType
+
+        case .Binary(_, _, _):
+            return NSBinaryStoreType
+        }
+    }
+
+    public func URL() -> NSURL? {
+        switch self {
+        case .InMemory(_, _):
+            return nil
+
+        case .SQLite(let URL, _, _):
+            return URL
+
+        case .Binary(let URL, _, _):
+            return URL
+        }
+    }
+
+    public func configuration() -> CoreDataModelConfiguration? {
+        switch self {
+        case .InMemory(let configuration, _):
+            return configuration
+
+        case .SQLite(_, let configuration, _):
+            return configuration
+
+        case .Binary(_, let configuration, _):
+            return configuration
+        }
+    }
+
+    public func options() -> CoreDataStoreOptions? {
+        switch self {
+        case .InMemory(_, let options):
+            return options
+
+        case .SQLite(_, _, let options):
+            return options
+
+        case .Binary(_, _, let options):
+            return options
+        }
+    }
 }
