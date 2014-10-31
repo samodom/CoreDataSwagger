@@ -32,8 +32,8 @@ class CoreDataStackCreationTests: XCTestCase {
         XCTAssertTrue(stack != nil, "A stack should be created with the default configuration")
         XCTAssertEqual(stack.model.entities.count, 0, "There are no models in the main bundle, so the entity count should be zero")
         XCTAssertEqual(stack.coordinator.persistentStores.count, 1, "There should be one persistent store")
-        XCTAssertEqual(stack.rootContext.concurrencyType, NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType, "The default context concurrency type should be the private queue type")
-        XCTAssertEqual(stack.rootContext.persistentStoreCoordinator!, stack.coordinator, "The context should use the stack's coordinator")
+        XCTAssertEqual(stack.context.concurrencyType, NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType, "The default context concurrency type should be the private queue type")
+        XCTAssertEqual(stack.context.persistentStoreCoordinator!, stack.coordinator, "The context should use the stack's coordinator")
     }
 
     func createModelSource() -> CoreDataModelSource {
@@ -56,8 +56,8 @@ class CoreDataStackCreationTests: XCTestCase {
         XCTAssertTrue(stack != nil, "A stack should be created with the custom configuration")
         XCTAssertEqual(stack.model.entities.count, 2, "There should be two total entities across all of the models")
         XCTAssertEqual(stack.coordinator.persistentStores.count, 2, "There should be two total persistent stores created")
-        XCTAssertEqual(stack.rootContext.concurrencyType, NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType, "The stack should create a managed object context with the provided concurency type")
-        XCTAssertEqual(stack.rootContext.persistentStoreCoordinator!, stack.coordinator, "The context should use the stack's coordinator")
+        XCTAssertEqual(stack.context.concurrencyType, NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType, "The stack should create a managed object context with the provided concurency type")
+        XCTAssertEqual(stack.context.persistentStoreCoordinator!, stack.coordinator, "The context should use the stack's coordinator")
     }
 
 }

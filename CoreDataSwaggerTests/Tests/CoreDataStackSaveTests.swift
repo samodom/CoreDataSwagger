@@ -23,7 +23,7 @@ class CoreDataStackSaveTests: XCTestCase {
         let modelSource = CoreDataModelSource(bundles: bundles)
         let configuration = CoreDataStackConfiguration(modelSource: modelSource)
         stack = CoreDataStack(configuration: configuration)
-        fruit = Fruit(name: "Apple", color: "red", context: stack.rootContext)
+        fruit = Fruit(name: "Apple", color: "red", context: stack.context)
     }
     
     override func tearDown() {
@@ -38,7 +38,7 @@ class CoreDataStackSaveTests: XCTestCase {
         fruit.color = "orange"
         (success, error) = stack.save()
         XCTAssertTrue(success, "The save should indicate success")
-        XCTAssertFalse(stack.rootContext.hasChanges, "The context should no longer have changes")
+        XCTAssertFalse(stack.context.hasChanges, "The context should no longer have changes")
         XCTAssertFalse(fruit.hasChanges, "The object should no longer have changes")
         XCTAssertTrue(error == nil, "The error should be nil")
     }
@@ -48,7 +48,7 @@ class CoreDataStackSaveTests: XCTestCase {
         fruit.color = nil
         (success, error) = stack.save()
         XCTAssertFalse(success, "The save should indicate failure")
-        XCTAssertTrue(stack.rootContext.hasChanges, "The context should still have changes")
+        XCTAssertTrue(stack.context.hasChanges, "The context should still have changes")
         XCTAssertTrue(fruit.hasChanges, "The object should still have changes")
         XCTAssertFalse(error == nil, "The error should not be nil")
     }
@@ -59,7 +59,7 @@ class CoreDataStackSaveTests: XCTestCase {
             self.fruit.color = "orange"
         }
         XCTAssertTrue(success, "The save should indicate success")
-        XCTAssertFalse(stack.rootContext.hasChanges, "The context should no longer have changes")
+        XCTAssertFalse(stack.context.hasChanges, "The context should no longer have changes")
         XCTAssertFalse(fruit.hasChanges, "The object should no longer have changes")
         XCTAssertTrue(error == nil, "The error should be nil")
     }
@@ -70,7 +70,7 @@ class CoreDataStackSaveTests: XCTestCase {
             self.fruit.color = nil
         }
         XCTAssertFalse(success, "The save should indicate failure")
-        XCTAssertTrue(stack.rootContext.hasChanges, "The context should still have changes")
+        XCTAssertTrue(stack.context.hasChanges, "The context should still have changes")
         XCTAssertTrue(fruit.hasChanges, "The object should still have changes")
         XCTAssertFalse(error == nil, "The error should be nil")
     }
