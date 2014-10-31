@@ -13,7 +13,6 @@ class CoreDataStoreParameterTests: XCTestCase {
 
     var storeParameters: CoreDataStoreParameters!
     let localURL = NSURL(string: "/var/stuff/foobar/datastore.dat")!
-    let remoteURL = NSURL(string: "http://www.example.com/datatstore.dat")!
     let sampleConfiguration = "Sample Configuration" as CoreDataModelConfiguration
     let sampleOptions = ["alpha": "bravo", "charlie": "delta"] as CoreDataStoreOptions
 
