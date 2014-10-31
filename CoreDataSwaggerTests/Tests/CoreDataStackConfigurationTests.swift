@@ -32,7 +32,7 @@ class CoreDataStackConfigurationTests: XCTestCase {
     }
 
     func testDefaultConfiguration() {
-        XCTAssertEqual(configuration.contextConcurrencyType, NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType, "The default context concurrency should use the main queue")
+        XCTAssertEqual(configuration.contextConcurrencyType, NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType, "The default context concurrency should use a private queue")
 
         switch configuration.modelSource {
         case .MainBundleMerge(let metadata):

@@ -14,7 +14,7 @@ public class CoreDataStackConfiguration {
     public let modelSource: CoreDataModelSource
     public let storeParameters: [CoreDataStoreParameters]
 
-    public init(concurrency: NSManagedObjectContextConcurrencyType = .MainQueueConcurrencyType, modelSource: CoreDataModelSource = CoreDataModelSource(), storeParameters: [CoreDataStoreParameters] = [CoreDataStoreParameters()]) {
+    public init(concurrency: NSManagedObjectContextConcurrencyType = .PrivateQueueConcurrencyType, modelSource: CoreDataModelSource = CoreDataModelSource(), storeParameters: [CoreDataStoreParameters] = [CoreDataStoreParameters()]) {
         contextConcurrencyType = concurrency
         self.modelSource = modelSource
         self.storeParameters = storeParameters
