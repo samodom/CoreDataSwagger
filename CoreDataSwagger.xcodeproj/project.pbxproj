@@ -11,7 +11,7 @@
 		0A07EEAA19FEB27C00ADB3F6 /* NSManagedObjectModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A07EEA819FEAFE000ADB3F6 /* NSManagedObjectModelExtensions.swift */; };
 		0A12BB6B19EB3C4700859D0A /* CoreDataSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A12BB7119EB3C4700859D0A /* CoreDataSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A12BB6519EB3C4700859D0A /* CoreDataSwagger.framework */; };
-		0A12BB8519EB3EEE00859D0A /* BasicCoreDataStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8419EB3EEE00859D0A /* BasicCoreDataStackTests.swift */; };
+		0A12BB8519EB3EEE00859D0A /* CoreDataStackCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8419EB3EEE00859D0A /* CoreDataStackCreationTests.swift */; };
 		0A12BB8719EB481400859D0A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8619EB481400859D0A /* CoreDataStack.swift */; };
 		0A12BB8819EB488500859D0A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8619EB481400859D0A /* CoreDataStack.swift */; };
 		0A12BB8C19EB49AD00859D0A /* SampleModelOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A12BB8A19EB49AD00859D0A /* SampleModelOne.xcdatamodeld */; };
@@ -49,7 +49,7 @@
 		0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataSwagger.h; sourceTree = "<group>"; };
 		0A12BB7019EB3C4700859D0A /* CoreDataSwaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataSwaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A12BB7619EB3C4700859D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A12BB8419EB3EEE00859D0A /* BasicCoreDataStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicCoreDataStackTests.swift; sourceTree = "<group>"; };
+		0A12BB8419EB3EEE00859D0A /* CoreDataStackCreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackCreationTests.swift; sourceTree = "<group>"; };
 		0A12BB8619EB481400859D0A /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0A12BB8B19EB49AD00859D0A /* SampleModelOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModelOne.xcdatamodel; sourceTree = "<group>"; };
 		0A12BB8E19EB52C100859D0A /* SampleModelTwo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleModelTwo.xcdatamodel; sourceTree = "<group>"; };
@@ -148,10 +148,10 @@
 		0A12BB8119EB3D6C00859D0A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0A12BB8419EB3EEE00859D0A /* BasicCoreDataStackTests.swift */,
 				0A518A931A01E65700CC2C2A /* CoordinatorCreationTests.swift */,
 				0A151C4E19FA021A00EB2DB3 /* CoreDataModelSourceTests.swift */,
 				0A151C4719F9D94100EB2DB3 /* CoreDataStackConfigurationTests.swift */,
+				0A12BB8419EB3EEE00859D0A /* CoreDataStackCreationTests.swift */,
 				0A71197619F72EBE001764AF /* CoreDataStackFetchTests.swift */,
 				0A5758F319F5E9F300B08295 /* CoreDataStackSaveTests.swift */,
 				0A151C5019FA0D4300EB2DB3 /* CoreDataStoreParameterTests.swift */,
@@ -308,7 +308,7 @@
 				0A12BB8C19EB49AD00859D0A /* SampleModelOne.xcdatamodeld in Sources */,
 				0A5758FD19F5ECBC00B08295 /* Produce.swift in Sources */,
 				0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */,
-				0A12BB8519EB3EEE00859D0A /* BasicCoreDataStackTests.swift in Sources */,
+				0A12BB8519EB3EEE00859D0A /* CoreDataStackCreationTests.swift in Sources */,
 				0A151C4F19FA021A00EB2DB3 /* CoreDataModelSourceTests.swift in Sources */,
 				0A151C4819F9D94100EB2DB3 /* CoreDataStackConfigurationTests.swift in Sources */,
 				0A151C4B19F9DABA00EB2DB3 /* CoreDataStackConfiguration.swift in Sources */,
