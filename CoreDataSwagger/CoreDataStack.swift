@@ -14,7 +14,7 @@ public class CoreDataStack {
 
     public let model: NSManagedObjectModel!
     public let coordinator: NSPersistentStoreCoordinator!
-    public let rootContext: NSManagedObjectContext!
+    public let context: NSManagedObjectContext!
 
     public init?(configuration: CoreDataStackConfiguration = CoreDataStackConfiguration()) {
         if let modelFromSource = NSManagedObjectModel.createFromSource(configuration.modelSource) {
@@ -27,8 +27,8 @@ public class CoreDataStack {
 
         coordinator = NSPersistentStoreCoordinator.createWithModel(model, storeParameters: configuration.storeParameters)
 
-        rootContext = NSManagedObjectContext(concurrencyType: configuration.contextConcurrencyType)
-        rootContext.persistentStoreCoordinator = coordinator
+        context = NSManagedObjectContext(concurrencyType: configuration.contextConcurrencyType)
+        context.persistentStoreCoordinator = coordinator
     }
 
 }
@@ -38,9 +38,9 @@ extension CoreDataStack {
     public func save(closure: CoreDataPerformClosure? = nil) -> (Bool, NSError?) {
         var success = false
         var error: NSError?
-        rootContext.performBlockAndWait {
+        context.performBlockAndWait {
             closure?()
-            success = self.rootContext.save(&error)
+            success = self.context.save(&error)
         }
 
         return (success, error)
@@ -54,7 +54,7 @@ extension CoreDataStack {
 
     public func fetch(request: NSFetchRequest) -> CoreDataFetchResults {
         var error: NSError?
-        let results = rootContext.executeFetchRequest(request, error: &error) as [NSManagedObject]?
+        let results = context.executeFetchRequest(request, error: &error) as [NSManagedObject]?
         return (results, error)
     }
 

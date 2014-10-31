@@ -35,9 +35,9 @@ class CoreDataStackFetchTests: XCTestCase {
     }
 
     func createProduce() {
-        apple = Fruit(name: "Apple", color: "red", context: stack.rootContext)
-        banana = Fruit(name: "Banana", color: "yellow", context: stack.rootContext)
-        lettuce = Vegetable(name: "Lettuce", color: "green", context: stack.rootContext)
+        apple = Fruit(name: "Apple", color: "red", context: stack.context)
+        banana = Fruit(name: "Banana", color: "yellow", context: stack.context)
+        lettuce = Vegetable(name: "Lettuce", color: "green", context: stack.context)
     }
 
     func testSuccessfulFetchRequest() {
