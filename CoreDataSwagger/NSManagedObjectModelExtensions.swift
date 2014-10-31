@@ -10,6 +10,13 @@ import CoreData
 
 public extension NSManagedObjectModel {
 
+    /**
+      Convenience method to create a managed object model from a `CoreDataModelSource`.
+    
+      @param    source `CoreDataModelSource` representing the model creation strategy.
+      @return   Managed object model if it can be created.
+    */
+
     public class func createFromSource(source: CoreDataModelSource) -> NSManagedObjectModel? {
 
         switch source {

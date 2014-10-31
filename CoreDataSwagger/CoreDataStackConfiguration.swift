@@ -8,6 +8,10 @@
 
 import CoreData
 
+/**
+  A `CoreDataStackConfiguration` object represents all of the information needed to create a CoreData stack.  The managed object model can be created using a `CoreDataModelSource`, which provides every possible option for creating a model.  The default model created merges all of the models in the main bundle.  Persistent stores can be added to the persistent store coordinator using an array of `CoreDataStoreParameters`.  The default list of parameters provides a single in-memory store.  Finally, the concurrency type of the managed object context can be specified in place of the default value of `PrivateQueueConcurrencyType`.
+*/
+
 public class CoreDataStackConfiguration {
 
     public let contextConcurrencyType: NSManagedObjectContextConcurrencyType
@@ -22,7 +26,10 @@ public class CoreDataStackConfiguration {
 
 }
 
-public typealias CoreDataStoreMetaData = [NSObject:AnyObject]
+
+/**
+  Enumeration to represent one of the various strategies for creating a managed object model.
+*/
 
 public enum CoreDataModelSource {
 
@@ -51,8 +58,12 @@ public enum CoreDataModelSource {
 
 }
 
-public typealias CoreDataStoreOptions = [NSString:AnyObject]
-public typealias CoreDataModelConfiguration = NSString
+public typealias CoreDataStoreMetaData = [NSObject:AnyObject]
+
+
+/**
+  Enumeration to represent one of the types of persistent stores that can be added to a persistent store coordinator in a CoreData stack.
+*/
 
 public enum CoreDataStoreParameters {
 
@@ -64,6 +75,11 @@ public enum CoreDataStoreParameters {
         self = InMemory(configuration: nil, options: nil)
     }
 
+    /**
+      Convenience method for providing the persistent store type string associated with the targeted store.
+
+      @return `NSString` of the type of store representing in-memory, SQLite or binary.
+    */
     public func storeType() -> NSString {
         switch self {
         case .InMemory(_, _):
@@ -77,6 +93,11 @@ public enum CoreDataStoreParameters {
         }
     }
 
+    /**
+      Convenience method for providing the URL of the persistent store associated with the targeted store.
+    
+      @return URL of the targeted store except for `nil` in the case of an in-memory store.
+    */
     public func URL() -> NSURL? {
         switch self {
         case .InMemory(_, _):
@@ -89,6 +110,12 @@ public enum CoreDataStoreParameters {
             return URL
         }
     }
+
+    /**
+      Convenience method for providing the managed object model configuration named associated with the targeted store.
+    
+      @return Model configuration name for targeted store.
+    */
 
     public func configuration() -> CoreDataModelConfiguration? {
         switch self {
@@ -103,6 +130,11 @@ public enum CoreDataStoreParameters {
         }
     }
 
+    /**
+      Convenience method for providing the persistent store options associated with the targeted store.
+    
+      @return Dictionary of options to use in the creation of a persistent store.
+    */
     public func options() -> CoreDataStoreOptions? {
         switch self {
         case .InMemory(_, let options):
@@ -116,3 +148,6 @@ public enum CoreDataStoreParameters {
         }
     }
 }
+
+public typealias CoreDataStoreOptions = [NSString:AnyObject]
+public typealias CoreDataModelConfiguration = NSString

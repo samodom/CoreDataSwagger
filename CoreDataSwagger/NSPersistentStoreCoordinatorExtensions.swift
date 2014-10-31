@@ -10,6 +10,14 @@ import CoreData
 
 public extension NSPersistentStoreCoordinator {
 
+    /**
+      Convenience method to create a persistent store coordinator from a managed object model and a list of `CoreDataStoreParameters`.
+
+      @param    model NSManagedObjectModel to use with the persistent store coordinator.
+      @param    storeParameters An array of store parameters to use in adding persistent stores to the coordinator after creation.
+      @return   Persistent store coordinator with the provided model that has one persistent store for each set of parameters provided.
+    */
+
     public class func createWithModel(model: NSManagedObjectModel, storeParameters: [CoreDataStoreParameters]) -> NSPersistentStoreCoordinator {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
 
