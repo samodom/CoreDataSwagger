@@ -31,7 +31,7 @@ class ModelCreationTests: XCTestCase {
     }
 
     func testModelCreationWithURLContents() {
-        let URL = URLofFile(named: "Produce", ofType: "momd")!
+        let URL = URLofBundledFile(named: "Produce", ofType: "momd")!
         source = CoreDataModelSource(contentURL: URL)
         model = NSManagedObjectModel.createFromSource(source)
         XCTAssertTrue(model != nil, "A model should be created for a valid model file URL")
@@ -173,36 +173,8 @@ class ModelCreationTests: XCTestCase {
 
 }
 
-private func URLofFile(named filename: String, ofType type: String) -> NSURL? {
-    for bundle in NSBundle.allBundles() as [NSBundle] {
-        let URL = bundle.URLForResource(filename, withExtension: type)
-        if URL != nil {
-            return URL
-        }
-    }
-
-    return nil
-}
-
-private func BundleForModel(named modelName: String) -> NSBundle! {
-    let allBundles = NSBundle.allBundles() as [NSBundle]
-    for bundle in allBundles {
-        if bundle.bundleURL.path!.rangeOfString(modelName) != nil {
-            return bundle
-        }
-    }
-
-    return nil
-}
-
-private func LoadModel(named name: String) -> NSManagedObjectModel! {
-    let URL = URLofFile(named: name, ofType: "momd")!
-    return NSManagedObjectModel(contentsOfURL: URL)!
-}
-
 private func CreateMainBundleMetadata() -> CoreDataStoreMetaData {
     let model = NSManagedObjectModel.mergedModelFromBundles(nil)!
-    NSLog("Test model: \(model)")
     let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
     let store = coordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)!
     return store.metadata

@@ -22,8 +22,8 @@ class CoordinatorCreationTests: XCTestCase {
         super.setUp()
 
         createModel()
-        sqliteStoreURL = URLofDocumentInDocumentsDirectory(named: "datastore.sqlite")
-        binaryStoreURL = URLofDocumentInDocumentsDirectory(named: "datastore.dat")
+        sqliteStoreURL = URLofFileInDocumentsDirectory(named: "datastore.sqlite")
+        binaryStoreURL = URLofFileInDocumentsDirectory(named: "datastore.dat")
         createDefaultStoreParameters()
         createCustomStoreParameters()
     }
@@ -31,8 +31,8 @@ class CoordinatorCreationTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
 
-        sqliteStoreURL = URLofDocumentInDocumentsDirectory(named: "datastore.sqlite")
-        binaryStoreURL = URLofDocumentInDocumentsDirectory(named: "datastore.dat")
+        sqliteStoreURL = URLofFileInDocumentsDirectory(named: "datastore.sqlite")
+        binaryStoreURL = URLofFileInDocumentsDirectory(named: "datastore.dat")
         DeleteFile(atURL: sqliteStoreURL)
         DeleteFile(atURL: binaryStoreURL)
     }
