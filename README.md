@@ -68,3 +68,13 @@ Additionally, you can provide a closure to the save() method that will be execut
     managedObject.property = "new value"
 }
 ```
+
+
+### Entity and Property Retrieval
+
+Find entities and their properties from the stack's more strongly-typed interface:
+- `var entities: [NSEntityDescription]`
+- `var entitiesByName: [String:NSEntityDescription]`
+- `func entity(named name: String) -> NSEntityDescription?`
+- `func propertiesForEntity(named entityName: String) -> [NSPropertyDescription]?`
+- `func propertiesByNameForEntity(named entityName: String) -> [String:NSPropertyDescription]?`
