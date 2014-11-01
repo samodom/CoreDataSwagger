@@ -66,6 +66,31 @@ public extension CoreDataStack {
         return (UInt(resultCount), nil)
     }
 
+    /**
+    Simpler interface for performing a fetch request on a managed object context and returning managed objects by simply providing the name of a known entity.
+      @param        entityName Name of entity to fetch.
+      @return       A mutually exclusive ordered pair with the results of performing the fetch or any error encountered.
+    */
+    public func fetch(entityName: String) -> CoreDataObjectFetchResults {
+        let request = NSFetchRequest(entityName: entityName)
+        var error: NSError?
+        let results = context.executeFetchRequest(request, error: &error) as [NSManagedObject]?
+        return (results, error)
+    }
+
+    /**
+    Simpler interface for performing a fetch request on a managed object context and returning managed objects by simply providing an entity description.
+      @param        entityDescription Entity description of entity to fetch.
+      @return       A mutually exclusive ordered pair with the results of performing the fetch or any error encountered.
+    */
+    public func fetch(entityDescription: NSEntityDescription) -> CoreDataObjectFetchResults {
+        let request = NSFetchRequest()
+        request.entity = entityDescription
+        var error: NSError?
+        let results = context.executeFetchRequest(request, error: &error) as [NSManagedObject]?
+        return (results, error)
+    }
+
 }
 
 public typealias CoreDataObjectFetchResults = ([NSManagedObject]?, NSError?)
