@@ -33,7 +33,7 @@ let fetchRequest = ...
 (let results, let error) = stack.fetch(fetchRequest)
 ```
 
-*Ma*Managed Object ID Fetches*
+*Managed Object ID Fetches*
 `CoreDataStack.fetchIDs()` returns `[NSManagedObjectID]?` and `NSError`
 ```swift
 let fetchRequest = ...
