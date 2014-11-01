@@ -61,16 +61,60 @@ extension CoreDataStack {
 extension CoreDataStack {
 
     /**
-      Simpler interface to performing a fetch request on a managed object context.
-      @param    request Fetch request to execute on the managed object context.
-      @return   An mutually exclusive ordered pair with the results of performing the fetch or any error encountered.
+      Simpler interface for performing a fetch request on a managed object context and returning managed objects.
+      @param        request Fetch request to execute on the managed object context.
+      @return       A mutually exclusive ordered pair with the results of performing the fetch or any error encountered.
+      @discussion   The fetch request must have the `resultsType` set to `ManagedObjectResultType` (which it is by default).
     */
-    public func fetch(request: NSFetchRequest) -> CoreDataFetchResults {
+    public func fetch(request: NSFetchRequest) -> CoreDataObjectFetchResults {
         var error: NSError?
         let results = context.executeFetchRequest(request, error: &error) as [NSManagedObject]?
         return (results, error)
     }
 
+    /**
+    Simpler interface for performing a fetch request on a managed object context and returning managed object identifiers.
+      @param        request Fetch request to execute on the managed object context.
+      @return       A mutually exclusive ordered pair with the results of performing the fetch or any error encountered.
+      @discussion   The fetch request must have the `resultsType` set to `ManagedObjectIDResultType`.
+    */
+    public func fetchIDs(request: NSFetchRequest) -> CoreDataObjectIDFetchResults {
+        var error: NSError?
+        let results = context.executeFetchRequest(request, error: &error) as [NSManagedObjectID]?
+        return (results, error)
+    }
+
+    /**
+    Simpler interface for performing a fetch request on a managed object context and returning dictionaries with object values.
+      @param        request Fetch request to execute on the managed object context.
+      @return       A mutually exclusive ordered pair with the results of performing the fetch or any error encountered.
+      @discussion   The fetch request must have the `resultsType` set to `DictionaryResultType`.
+    */
+    public func fetchDictionaries(request: NSFetchRequest) -> CoreDataDictionaryFetchResults {
+        var error: NSError?
+        let results = context.executeFetchRequest(request, error: &error)
+        return (results, error)
+    }
+
+    /**
+    Simpler interface for performing a count fetch request on a managed object context and returning an object count.
+      @param        request Fetch request to execute on the managed object context.
+      @return       A mutually exclusive ordered pair with the count of the results that would be returned when performing the fetch or any error encountered.
+      @discussion   The fetch request must have the `resultsType` set to `CountResultType`.
+    */
+    public func count(request: NSFetchRequest) -> CoreDataCountFetchResults {
+        var error: NSError?
+        var resultCount = context.countForFetchRequest(request, error: &error)
+        if error != nil {
+            return (nil, error)
+        }
+
+        return (UInt(resultCount), nil)
+    }
+
 }
 
-public typealias CoreDataFetchResults = ([NSManagedObject]?, NSError?)
+public typealias CoreDataObjectFetchResults = ([NSManagedObject]?, NSError?)
+public typealias CoreDataObjectIDFetchResults = ([NSManagedObjectID]?, NSError?)
+public typealias CoreDataDictionaryFetchResults = ([AnyObject]?, NSError?)
+public typealias CoreDataCountFetchResults = (UInt?, NSError?)
