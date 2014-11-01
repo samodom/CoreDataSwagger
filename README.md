@@ -57,12 +57,13 @@ let fetchRequest = ...
 
 ### Simpler Save and Perform Block And Wait
 
-Saving changes to the managed object context is as easy as always, but now you don't have to provide an error pointer.  The save() method returns both a success flag and an optional error.
+Saving changes to the managed object context is as easy as always, but now you don't have to provide an error pointer.  Additionally, you can provide a closure to the save() method that will be executed before the save in a synchronous block via performBlockAndWait().  This save() method returns both a success flag and an optional error:
+`func save(closure: CoreDataPerformClosure? = nil) -> (Bool, NSError?)`
+
 ```swift
 (let success, let error) = stack.save()
 ```
 
-Additionally, you can provide a closure to the save() method that will be executed before the save in a synchronous block via performBlockAndWait().
 ```swift
 (let success, let error) = stack.save() {
     managedObject.property = "new value"
