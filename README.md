@@ -24,47 +24,55 @@ var stack = CoreDataStack(configuration: configuration)
 
 ### Simpler Fetch Results
 
-You no longer need to provide error pointers to get fetch errors (currently not working - bug filed with Apple).  All you need to do is use or ignore the error value in the tuple returned from a fetch.  The return values are mutually exclusive
+You no longer need to provide error pointers to get fetch errors (currently not working - bug filed with Apple).  All you need to do is use or ignore the error value in the tuple returned from a fetch.  The return values are mutually exclusive, so you will get EITHER a result set OR an error, but never both or neither.
 
-*Managed Object Fetches*
-`CoreDataStack.fetch()` returns `[NSManagedObject]?` and `NSError`
-```swift
-let fetchRequest = ...
-(let results, let error) = stack.fetch(fetchRequest)
-```
+- `func fetch(request: NSFetchRequest) -> CoreDataObjectFetchResults`
+- `func fetchIDs(request: NSFetchRequest) -> CoreDataObjectIDFetchResults`
+- `func fetchDictionaries(request: NSFetchRequest) -> CoreDataDictionaryFetchResults`
+- `func count(request: NSFetchRequest) -> CoreDataCountFetchResults`
+- `func fetch(entityName: String) -> CoreDataObjectFetchResults`
+- `func fetch(entityDescription: NSEntityDescription) -> CoreDataObjectFetchResults`
 
-*Managed Object ID Fetches*
-`CoreDataStack.fetchIDs()` returns `[NSManagedObjectID]?` and `NSError`
-```swift
-let fetchRequest = ...
-(let results, let error) = stack.fetchIDs(fetchRequest)
-```
+Where the following type aliases are used:
 
-*Object Dictionary Fetches*
-`CoreDataStack.fetchDictionaries()` returns `[AnyObject]?` and `NSError`
-```swift
-let fetchRequest = ...
-(let results, let error) = stack.fetchDictionaries(fetchRequest)
-```
-
-*Object Count Fetches*
-`CoreDataStack.count()` returns `UInt?` and `NSError`
-```swift
-let fetchRequest = ...
-(let results, let error) = stack.count(fetchRequest)
-```
+- `typealias CoreDataObjectFetchResults = ([NSManagedObject]?, NSError?)`
+- `typealias CoreDataObjectIDFetchResults = ([NSManagedObjectID]?, NSError?)`
+- `typealias CoreDataDictionaryFetchResults = ([AnyObject]?, NSError?)`
+- `typealias CoreDataCountFetchResults = (UInt?, NSError?)`
 
 
 ### Simpler Save and Perform Block And Wait
 
-Saving changes to the managed object context is as easy as always, but now you don't have to provide an error pointer.  The save() method returns both a success flag and an optional error.
+Saving changes to the managed object context is as easy as always, but now you don't have to provide an error pointer.  Additionally, you can provide a closure to the save() method that will be executed before the save in a synchronous block via performBlockAndWait().  This save() method returns both a success flag and an optional error:
+
+`func save(closure: CoreDataPerformClosure? = nil) -> (Bool, NSError?)`
+
 ```swift
 (let success, let error) = stack.save()
 ```
 
-Additionally, you can provide a closure to the save() method that will be executed before the save in a synchronous block via performBlockAndWait().
 ```swift
 (let success, let error) = stack.save() {
     managedObject.property = "new value"
 }
 ```
+
+
+### Entity and Property Retrieval
+
+Find entities and their properties from the stack's more strongly-typed interface:
+- `var entities: [NSEntityDescription]`
+- `var entitiesByName: [String:NSEntityDescription]`
+- `func entity(named name: String) -> NSEntityDescription?`
+- `func propertiesForEntity(named entityName: String) -> [NSPropertyDescription]?`
+- `func propertiesByNameForEntity(named entityName: String) -> [String:NSPropertyDescription]?`
+
+
+### Object Deletion
+
+Deleting objects is very easy with the stack's flexible interface:
+- `func delete(object: NSManagedObject)`
+- `func delete(objects: [NSManagedObject])`
+- `func delete(identifier: NSManagedObjectID)`
+- `func delete(identifiers: [NSManagedObjectID])`
+- `func delete(fetchRequest: NSFetchRequest)`

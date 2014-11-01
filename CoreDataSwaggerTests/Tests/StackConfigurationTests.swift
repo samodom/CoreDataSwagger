@@ -1,5 +1,5 @@
 //
-//  CoreDataStackConfigurationTests.swift
+//  StackConfigurationTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/23/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class CoreDataStackConfigurationTests: XCTestCase {
+class StackConfigurationTests: XCTestCase {
 
     var configuration: CoreDataStackConfiguration!
     let modelURL = NSURL(string: "/var/stuff/foobar/data.mom")!

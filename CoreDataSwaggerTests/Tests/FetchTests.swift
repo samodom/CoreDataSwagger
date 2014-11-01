@@ -1,5 +1,5 @@
 //
-//  CoreDataStackFetchTests.swift
+//  FetchTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/21/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class CoreDataStackFetchTests: XCTestCase {
+class FetchTests: XCTestCase {
 
     var stack: CoreDataStack!
     var goodRequest: NSFetchRequest!
@@ -43,9 +43,10 @@ class CoreDataStackFetchTests: XCTestCase {
 
     func createProduce() {
         stack.save() {
-            self.apple = Fruit(name: "Apple", color: "red", context: self.stack.context)
-            self.banana = Fruit(name: "Banana", color: "yellow", context: self.stack.context)
-            self.lettuce = Vegetable(name: "Lettuce", color: "green", context: self.stack.context)
+            let context = self.stack.context
+            self.apple = Fruit(name: "Apple", color: "red", context: context)
+            self.banana = Fruit(name: "Banana", color: "yellow", context: context)
+            self.lettuce = Vegetable(name: "Lettuce", color: "green", context: context)
         }
     }
 
@@ -126,6 +127,31 @@ class CoreDataStackFetchTests: XCTestCase {
         XCTAssertTrue(count == nil, "There should be no fetch result count returned")
     }
 
+    func testSuccessfulEntityNameFetch() {
+        (objectResults, error) = stack.fetch("Fruit")
+        XCTAssertTrue(error == nil, "There should be no error returned")
+        XCTAssertTrue(objectResults != nil, "There should be fetch results returned")
+        XCTAssertEqual(objectResults!.count, 2, "There should be two objects returned")
+        XCTAssertTrue(contains(objectResults!, apple), "The apple should be included in the results")
+        XCTAssertTrue(contains(objectResults!, banana), "The banana should be included in the results")
+    }
+
+    func testFailingEntityNameFetch() {
+        (objectResults, error) = stack.fetch("Car")
+        XCTAssertTrue(error != nil, "There should be an error returned")
+        XCTAssertTrue(objectResults == nil, "There should be no fetch results returned")
+    }
+
+    func testSuccessfulEntityDescriptionFetch() {
+        let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: stack.context)!
+        (objectResults, error) = stack.fetch(entity)
+        XCTAssertTrue(error == nil, "There should be no error returned")
+        XCTAssertTrue(objectResults != nil, "There should be fetch results returned")
+        XCTAssertEqual(objectResults!.count, 2, "There should be two objects returned")
+        XCTAssertTrue(contains(objectResults!, apple), "The apple should be included in the results")
+        XCTAssertTrue(contains(objectResults!, banana), "The banana should be included in the results")
+    }
+    
 }
 
 private func GetNameAndColorProperties(inContext context: NSManagedObjectContext) -> [NSPropertyDescription] {

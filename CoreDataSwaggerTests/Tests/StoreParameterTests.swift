@@ -1,5 +1,5 @@
 //
-//  CoreDataStoreParameterTests.swift
+//  StoreParameterTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/23/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class CoreDataStoreParameterTests: XCTestCase {
+class StoreParameterTests: XCTestCase {
 
     var storeParameters: CoreDataStoreParameters!
     let localURL = NSURL(string: "/var/stuff/foobar/datastore.dat")!

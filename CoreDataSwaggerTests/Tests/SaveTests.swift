@@ -1,5 +1,5 @@
 //
-//  CoreDataStackSaveTests.swift
+//  SaveTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/20/14.
@@ -9,7 +9,7 @@
 import XCTest
 import CoreData
 
-class CoreDataStackSaveTests: XCTestCase {
+class SaveTests: XCTestCase {
 
     var stack: CoreDataStack!
     var fruit: Fruit!
@@ -19,8 +19,7 @@ class CoreDataStackSaveTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        let bundles = NSBundle.allBundles() as [NSBundle]
-        let modelSource = CoreDataModelSource(bundles: bundles)
+        let modelSource = CoreDataModelSource.AllBundlesMerge(metadata: nil)
         let configuration = CoreDataStackConfiguration(modelSource: modelSource)
         stack = CoreDataStack(configuration: configuration)
         fruit = Fruit(name: "Apple", color: "red", context: stack.context)

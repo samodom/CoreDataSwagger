@@ -1,5 +1,5 @@
 //
-//  CoreDataModelSourceTests.swift
+//  ModelSourceTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/23/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class CoreDataModelSourceTests: XCTestCase {
+class ModelSourceTests: XCTestCase {
 
     var modelSource: CoreDataModelSource!
     let sampleMetadata = [ "one": "two", "three": "four" ] as CoreDataStoreMetaData

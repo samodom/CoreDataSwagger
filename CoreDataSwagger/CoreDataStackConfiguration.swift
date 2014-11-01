@@ -77,7 +77,6 @@ public enum CoreDataStoreParameters {
 
     /**
       Convenience method for providing the persistent store type string associated with the targeted store.
-
       @return `NSString` of the type of store representing in-memory, SQLite or binary.
     */
     public func storeType() -> NSString {
@@ -95,7 +94,6 @@ public enum CoreDataStoreParameters {
 
     /**
       Convenience method for providing the URL of the persistent store associated with the targeted store.
-    
       @return URL of the targeted store except for `nil` in the case of an in-memory store.
     */
     public func URL() -> NSURL? {
@@ -113,7 +111,6 @@ public enum CoreDataStoreParameters {
 
     /**
       Convenience method for providing the managed object model configuration named associated with the targeted store.
-    
       @return Model configuration name for targeted store.
     */
 
@@ -132,7 +129,6 @@ public enum CoreDataStoreParameters {
 
     /**
       Convenience method for providing the persistent store options associated with the targeted store.
-    
       @return Dictionary of options to use in the creation of a persistent store.
     */
     public func options() -> CoreDataStoreOptions? {
