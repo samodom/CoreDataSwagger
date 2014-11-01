@@ -67,6 +67,7 @@ extension CoreDataStack {
       @discussion   The fetch request must have the `resultsType` set to `ManagedObjectResultType` (which it is by default).
     */
     public func fetch(request: NSFetchRequest) -> CoreDataObjectFetchResults {
+        assert(request.resultType == .ManagedObjectResultType, "The fetch request must be configured to return managed objects")
         var error: NSError?
         let results = context.executeFetchRequest(request, error: &error) as [NSManagedObject]?
         return (results, error)
@@ -79,6 +80,7 @@ extension CoreDataStack {
       @discussion   The fetch request must have the `resultsType` set to `ManagedObjectIDResultType`.
     */
     public func fetchIDs(request: NSFetchRequest) -> CoreDataObjectIDFetchResults {
+        assert(request.resultType == .ManagedObjectIDResultType, "The fetch request must be configured to return managed object identifiers")
         var error: NSError?
         let results = context.executeFetchRequest(request, error: &error) as [NSManagedObjectID]?
         return (results, error)
@@ -91,6 +93,7 @@ extension CoreDataStack {
       @discussion   The fetch request must have the `resultsType` set to `DictionaryResultType`.
     */
     public func fetchDictionaries(request: NSFetchRequest) -> CoreDataDictionaryFetchResults {
+        assert(request.resultType == .DictionaryResultType, "The fetch request must be configured to return object dictionaries")
         var error: NSError?
         let results = context.executeFetchRequest(request, error: &error)
         return (results, error)
@@ -103,6 +106,7 @@ extension CoreDataStack {
       @discussion   The fetch request must have the `resultsType` set to `CountResultType`.
     */
     public func count(request: NSFetchRequest) -> CoreDataCountFetchResults {
+        assert(request.resultType == .CountResultType, "The fetch request must be configured to return an object count")
         var error: NSError?
         var resultCount = context.countForFetchRequest(request, error: &error)
         if error != nil {
