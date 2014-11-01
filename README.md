@@ -79,3 +79,13 @@ Find entities and their properties from the stack's more strongly-typed interfac
 - `func entity(named name: String) -> NSEntityDescription?`
 - `func propertiesForEntity(named entityName: String) -> [NSPropertyDescription]?`
 - `func propertiesByNameForEntity(named entityName: String) -> [String:NSPropertyDescription]?`
+
+
+### Object Deletion
+
+Deleting objects is very easy with the stack's flexible interface:
+- `func delete(object: NSManagedObject)`
+- `func delete(objects: [NSManagedObject])`
+- `func delete(identifier: NSManagedObjectID)`
+- `func delete(identifiers: [NSManagedObjectID])`
+- `func delete(fetchRequest: NSFetchRequest)`
