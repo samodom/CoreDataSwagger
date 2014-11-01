@@ -40,8 +40,8 @@ public extension CoreDataStack {
 
     /**
       Convenience method for saving changes to the managed object context with the option of wrapping the manipulation of managed objects in a synchronous block beforehand.
-      @param    closure Closure containing any code to be executed synchronously before saving.
-      @return   An ordered pair indicating whether or not the save was successful and, on failure, an error object.
+      @param        closure Closure containing any code to be executed synchronously before saving.
+      @return       An ordered pair indicating whether or not the save was successful and, on failure, an error object.
     */
 
     public func save(closure: CoreDataPerformClosure? = nil) -> (Bool, NSError?) {

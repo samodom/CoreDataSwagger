@@ -43,9 +43,10 @@ class FetchTests: XCTestCase {
 
     func createProduce() {
         stack.save() {
-            self.apple = Fruit(name: "Apple", color: "red", context: self.stack.context)
-            self.banana = Fruit(name: "Banana", color: "yellow", context: self.stack.context)
-            self.lettuce = Vegetable(name: "Lettuce", color: "green", context: self.stack.context)
+            let context = self.stack.context
+            self.apple = Fruit(name: "Apple", color: "red", context: context)
+            self.banana = Fruit(name: "Banana", color: "yellow", context: context)
+            self.lettuce = Vegetable(name: "Lettuce", color: "green", context: context)
         }
     }
 
