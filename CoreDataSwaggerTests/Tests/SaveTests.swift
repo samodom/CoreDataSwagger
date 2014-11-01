@@ -1,5 +1,5 @@
 //
-//  CoreDataStackSaveTests.swift
+//  SaveTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/20/14.
@@ -9,7 +9,7 @@
 import XCTest
 import CoreData
 
-class CoreDataStackSaveTests: XCTestCase {
+class SaveTests: XCTestCase {
 
     var stack: CoreDataStack!
     var fruit: Fruit!

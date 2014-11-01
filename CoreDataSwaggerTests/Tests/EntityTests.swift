@@ -1,5 +1,5 @@
 //
-//  EntityDescriptionTests.swift
+//  EntityTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 11/1/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class EntityDescriptionTests: XCTestCase {
+class EntityTests: XCTestCase {
 
     var stack: CoreDataStack!
 

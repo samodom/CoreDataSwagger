@@ -1,5 +1,5 @@
 //
-//  CoreDataStackFetchTests.swift
+//  FetchTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/21/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class CoreDataStackFetchTests: XCTestCase {
+class FetchTests: XCTestCase {
 
     var stack: CoreDataStack!
     var goodRequest: NSFetchRequest!

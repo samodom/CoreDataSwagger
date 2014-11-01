@@ -1,5 +1,5 @@
 //
-//  CoreDataStackCreationTests.swift
+//  StackCreationTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/12/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class CoreDataStackCreationTests: XCTestCase {
+class StackCreationTests: XCTestCase {
 
     var stack: CoreDataStack!
     var storeURL: NSURL!

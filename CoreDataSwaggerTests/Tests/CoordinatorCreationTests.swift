@@ -1,5 +1,5 @@
 //
-//  PersistentCoordinatorCreationTests.swift
+//  CoordinatorCreationTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/29/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class PersistentCoordinatorCreationTests: XCTestCase {
+class CoordinatorCreationTests: XCTestCase {
 
     var coordinator: NSPersistentStoreCoordinator!
     var model: NSManagedObjectModel!
