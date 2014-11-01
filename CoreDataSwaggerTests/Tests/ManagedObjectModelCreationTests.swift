@@ -1,5 +1,5 @@
 //
-//  ModelCreationTests.swift
+//  ManagedObjectModelCreationTests.swift
 //  CoreDataSwagger
 //
 //  Created by Sam Odom on 10/27/14.
@@ -9,7 +9,7 @@
 import CoreData
 import XCTest
 
-class ModelCreationTests: XCTestCase {
+class ManagedObjectModelCreationTests: XCTestCase {
 
     var model: NSManagedObjectModel!
     var source: CoreDataModelSource!
