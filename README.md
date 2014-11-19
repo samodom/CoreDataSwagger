@@ -67,6 +67,9 @@ Find entities and their properties from the stack's more strongly-typed interfac
 - `func propertiesForEntity(named entityName: String) -> [NSPropertyDescription]?`
 - `func propertiesByNameForEntity(named entityName: String) -> [String:NSPropertyDescription]?`
 
+Or find the entity associated with your custom class in the stack's managed object model:
+`class func entity(inStack stack: CoreDataStack) -> NSEntityDescription?`
+
 
 ### Object Deletion
 

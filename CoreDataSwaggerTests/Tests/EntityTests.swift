@@ -26,6 +26,10 @@ class EntityTests: XCTestCase {
         super.tearDown()
     }
 
+    private class BadEntity: NSManagedObject {
+
+    }
+
     func testAllEntitiesRetrieval() {
         let allEntities = stack.entities
         XCTAssertEqual(allEntities.count, 3, "There should be three total entities returned")
@@ -59,6 +63,21 @@ class EntityTests: XCTestCase {
         let expectedProperties = entity.propertiesByName as [String:NSPropertyDescription]
         let properties = stack.propertiesByNameForEntity(named: "Fruit")
         XCTAssertEqual(properties!, expectedProperties, "The dictionary of properties of the entity described by the provided name should be returned")
+    }
+
+    func testSuccessfulEntityForClassRetrieval() {
+        let entity = Fruit.entity(inStack: stack)
+        XCTAssertEqual(entity!.name!, "Fruit", "The entity for the class should be retrieved from the stack's managed object model")
+    }
+
+    func testFailingEntityForClassRetrieval() {
+        let entity = BadEntity.entity(inStack: stack)
+        XCTAssertTrue(entity == nil, "No entity should be returned if it does not exist in the model")
+    }
+
+    func testBaseClassEntityForClassRetrieval() {
+        let entity = NSManagedObject.entity(inStack: stack)
+        XCTAssertTrue(entity == nil, "No entity should be returned for the base managed object class")
     }
 
 }
