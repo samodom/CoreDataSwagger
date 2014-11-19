@@ -11,50 +11,50 @@ import CoreData
 public extension CoreDataStack {
 
     /**
-    Simple interface for deleting a managed object from a persistent store.
-      @param        object Managed object to delete.
+      Simple interface for deleting one or more managed objects from a persistent store.
+      @param        objects Managed object(s) to delete.
       @discussion   This method does not save the changes to the managed object context.
     */
-    public func delete(object: NSManagedObject) {
-        context.deleteObject(object)
+    public func delete(objects: NSManagedObject...) {
+        delete(objects)
     }
 
     /**
-    Simple interface for deleting multiple managed objects from a persistent store.
+      Simple interface for deleting multiple managed objects from a persistent store.
       @param        objects Managed objects to delete.
       @discussion   This method does not save the changes to the managed object context.
     */
     public func delete(objects: [NSManagedObject]) {
         for object in objects {
-            delete(object)
+            context.deleteObject(object)
         }
     }
 
     /**
-    Simple interface for deleting a managed object from a persistent store by using its identifier.
-      @param        objectID Identifier of managed object to delete.
+      Simple interface for deleting one or more managed objects from a persistent store by using its identifier.
+      @param        identifiers Identifier of managed object(s) to delete.
       @discussion   This method does not save the changes to the managed object context.
     */
-    public func delete(identifier: NSManagedObjectID) {
-        let object = context.objectRegisteredForID(identifier)
-        if object != nil {
-            delete(object!)
-        }
+    public func delete(identifiers: NSManagedObjectID...) {
+        delete(identifiers)
     }
 
     /**
-    Simple interface for deleting multiple managed objects from a persistent store by using their identifiers.
-      @param        objectIDs Identifiers of managed objects to delete.
+      Simple interface for deleting multiple managed objects from a persistent store by using their identifiers.
+      @param        identifiers Identifiers of managed objects to delete.
       @discussion   This method does not save the changes to the managed object context.
     */
     public func delete(identifiers: [NSManagedObjectID]) {
         for identifier in identifiers {
-            delete(identifier)
+            let object = context.objectRegisteredForID(identifier)
+            if object != nil {
+                delete(object!)
+            }
         }
     }
 
     /**
-    Simple interface for deleting managed objects returned as the result of performing a fetch request.
+      Simple interface for deleting managed objects returned as the result of performing a fetch request.
       @param        fetchRequest Fetch request to perform for obtaining objects to delete.
       @discussion   The fetch request must be configured to return objects or object IDs as its results type.  Additionally, this method does not save the changes to the managed object context.
     */

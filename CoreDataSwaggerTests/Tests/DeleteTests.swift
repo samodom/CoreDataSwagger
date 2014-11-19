@@ -47,6 +47,15 @@ class DeleteTests: XCTestCase {
         XCTAssertTrue(stack.context.hasChanges, "The context should not be saved after the deletion")
     }
 
+    func testObjectListDeletion() {
+        stack.delete(apple, kiwi)
+        XCTAssertTrue(apple.hasChanges, "The object should indicate having changes and should be deleted on the next save")
+        XCTAssertTrue(kiwi.hasChanges, "The object should indicate having changes and should be deleted on the next save")
+        XCTAssertFalse(banana.hasChanges, "The object should not indicate having changes")
+        XCTAssertFalse(lettuce.hasChanges, "The object should not indicate having changes")
+        XCTAssertTrue(stack.context.hasChanges, "The context should not be saved after the deletion")
+    }
+
     func testObjectArrayDeletion() {
         stack.delete([apple, kiwi])
         XCTAssertTrue(apple.hasChanges, "The object should indicate having changes and should be deleted on the next save")
@@ -59,6 +68,15 @@ class DeleteTests: XCTestCase {
     func testDeletionByObjectIdentifier() {
         stack.delete(apple.objectID)
         XCTAssertTrue(apple.hasChanges, "The object should indicate having changes and should be deleted on the next save")
+        XCTAssertTrue(stack.context.hasChanges, "The context should not be saved after the deletion")
+    }
+
+    func testDeletionByObjectIdentifierList() {
+        stack.delete(apple.objectID, kiwi.objectID)
+        XCTAssertTrue(apple.hasChanges, "The object should indicate having changes and should be deleted on the next save")
+        XCTAssertTrue(kiwi.hasChanges, "The object should indicate having changes and should be deleted on the next save")
+        XCTAssertFalse(banana.hasChanges, "The object should not indicate having changes")
+        XCTAssertFalse(lettuce.hasChanges, "The object should not indicate having changes")
         XCTAssertTrue(stack.context.hasChanges, "The context should not be saved after the deletion")
     }
 
