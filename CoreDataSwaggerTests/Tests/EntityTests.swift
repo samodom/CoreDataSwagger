@@ -80,4 +80,38 @@ class EntityTests: XCTestCase {
         XCTAssertTrue(entity == nil, "No entity should be returned for the base managed object class")
     }
 
+    func testSuccessfulPropertiesForClassRetrieval() {
+        let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: stack.context)!
+        let expectedProperties = entity.properties as [NSPropertyDescription]
+        let properties = Fruit.properties(inStack: stack)
+        XCTAssertEqual(properties!, expectedProperties, "The properties of the entity associated with the class should be returned")
+    }
+
+    func testFailingPropertiesForClassRetrieval() {
+        let properties = BadEntity.properties(inStack: stack)
+        XCTAssertTrue(properties == nil, "No properties should be returned if the entity does not exist in the model")
+    }
+
+    func testBaseClassPropertiesForClassRetrieval() {
+        let properties = NSManagedObject.properties(inStack: stack)
+        XCTAssertTrue(properties == nil, "No properties should be returned for the base managed object class")
+    }
+
+    func testSuccessfulPropertiesByNameForClassRetrieval() {
+        let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: stack.context)!
+        let expectedProperties = entity.propertiesByName as [String:NSPropertyDescription]
+        let properties = Fruit.propertiesByName(inStack: stack)
+        XCTAssertEqual(properties!, expectedProperties, "The properties of the entity associated with the class should be returned")
+    }
+
+    func testFailingPropertiesByNameForClassRetrieval() {
+        let properties = BadEntity.propertiesByName(inStack: stack)
+        XCTAssertTrue(properties == nil, "No properties should be returned if the entity does not exist in the model")
+    }
+
+    func testBaseClassPropertiesByNameForClassRetrieval() {
+        let properties = NSManagedObject.propertiesByName(inStack: stack)
+        XCTAssertTrue(properties == nil, "No properties should be returned for the base managed object class")
+    }
+
 }
