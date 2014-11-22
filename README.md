@@ -81,3 +81,10 @@ Deleting objects is very easy with the stack's flexible interface:
 - `func delete(identifiers: NSManagedObjectID...)`
 - `func delete(identifiers: [NSManagedObjectID])`
 - `func delete(fetchRequest: NSFetchRequest)`
+
+
+### Fetched Results Controller Subscripting
+
+Shortcuts to `objectAtIndexPath`:
+ - `subscript(item: Int) -> NSManagedObject` *(for single-section result sets)*
+ - `subscript(indexPath: NSIndexPath) -> NSManagedObject`
