@@ -16,7 +16,7 @@ class CoordinatorCreationTests: XCTestCase {
     var storeParameters: [CoreDataStoreParameters]!
     var sqliteStoreURL: NSURL!
     var binaryStoreURL: NSURL!
-    var timeoutOptions = [ NSPersistentStoreTimeoutOption: 3 ] as CoreDataStoreOptions
+    var timeoutOptions = CoreDataStoreOptions()
 
     override func setUp() {
         super.setUp()
@@ -26,6 +26,7 @@ class CoordinatorCreationTests: XCTestCase {
         binaryStoreURL = URLofFileInDocumentsDirectory(named: "datastore.dat")
         createDefaultStoreParameters()
         createCustomStoreParameters()
+        timeoutOptions[NSPersistentStoreTimeoutOption] = 3
     }
     
     override func tearDown() {

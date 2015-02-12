@@ -145,5 +145,5 @@ public enum CoreDataStoreParameters {
     }
 }
 
-public typealias CoreDataStoreOptions = [NSString:AnyObject]
-public typealias CoreDataModelConfiguration = NSString
+public typealias CoreDataStoreOptions = [String:AnyObject]
+public typealias CoreDataModelConfiguration = String
