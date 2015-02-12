@@ -8,11 +8,11 @@
 
 import CoreData
 
-internal var DocumentsDirectoryURL: NSURL {
+internal let DocumentsDirectoryURL: NSURL = {
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-    let basePath = paths[0] as String
+    let basePath = paths[0] as! String
     return NSURL(fileURLWithPath: basePath)!
-}
+}()
 
 internal func URLofFileInDocumentsDirectory(named filename: String) -> NSURL? {
     let path = DocumentsDirectoryURL.path!.stringByAppendingPathComponent(filename)
