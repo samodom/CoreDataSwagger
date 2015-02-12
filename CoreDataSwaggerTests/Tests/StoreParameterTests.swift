@@ -41,12 +41,12 @@ class StoreParameterTests: XCTestCase {
         storeParameters = .InMemory(configuration: nil, options: nil)
         switch storeParameters! {
         case .InMemory(let configuration, let options):
-            XCTAssertTrue(storeParameters.URL() == nil, "In-memory stores do not have URLs")
+            XCTAssertTrue(storeParameters.URL == nil, "In-memory stores do not have URLs")
             XCTAssertTrue(configuration == nil, "The store parameters should not have a configuration")
-            XCTAssertTrue(storeParameters.configuration() == nil, "The configuration should be available through the interface")
+            XCTAssertTrue(storeParameters.configuration == nil, "The configuration should be available through the interface")
             XCTAssertTrue(options == nil, "The store parameters should not have any options")
-            XCTAssertTrue(storeParameters.options() == nil, "The options should be available through the interface")
-            XCTAssertEqual(storeParameters.storeType(), NSInMemoryStoreType, "The store type should be in-memory")
+            XCTAssertTrue(storeParameters.options == nil, "The options should be available through the interface")
+            XCTAssertEqual(storeParameters.storeType, NSInMemoryStoreType, "The store type should be in-memory")
 
         default:
             XCTFail("There should not be another type of store parameters created")
@@ -58,12 +58,12 @@ class StoreParameterTests: XCTestCase {
         switch storeParameters! {
         case .InMemory(let configuration, var options):
             XCTAssertEqual(configuration!, sampleConfiguration, "The store parameters should use the provided configuration")
-            XCTAssertEqual(storeParameters.configuration()!, sampleConfiguration, "The configuration should be available through the interface")
-            XCTAssertEqual(options!["alpha"] as String, "bravo", "The store parameters should use the provided options")
-            XCTAssertEqual(options!["charlie"] as String, "delta", "The store parameters should use the provided options")
-            options = storeParameters.options()!
-            XCTAssertEqual(options!["alpha"] as String, "bravo", "The options should be available through the interface")
-            XCTAssertEqual(options!["charlie"] as String, "delta", "The options should be available through the interface")
+            XCTAssertEqual(storeParameters.configuration!, sampleConfiguration, "The configuration should be available through the interface")
+            XCTAssertEqual(options!["alpha"] as! String, "bravo", "The store parameters should use the provided options")
+            XCTAssertEqual(options!["charlie"] as! String, "delta", "The store parameters should use the provided options")
+            options = storeParameters.options!
+            XCTAssertEqual(options!["alpha"] as! String, "bravo", "The options should be available through the interface")
+            XCTAssertEqual(options!["charlie"] as! String, "delta", "The options should be available through the interface")
 
         default:
             XCTFail("There should not be another type of store parameters created")
@@ -75,12 +75,12 @@ class StoreParameterTests: XCTestCase {
         switch storeParameters! {
         case .SQLite(let URL, let configuration, let options):
             XCTAssertEqual(URL, localURL, "The store should use the provided URL")
-            XCTAssertEqual(storeParameters.URL()!, localURL, "The URL should be available through the interface")
+            XCTAssertEqual(storeParameters.URL!, localURL, "The URL should be available through the interface")
             XCTAssertTrue(configuration == nil, "The store parameters should not have a configuration")
-            XCTAssertTrue(storeParameters.configuration() == nil, "The configuration should be available through the interface")
+            XCTAssertTrue(storeParameters.configuration == nil, "The configuration should be available through the interface")
             XCTAssertTrue(options == nil, "The store parameters should not have any options")
-            XCTAssertTrue(storeParameters.options() == nil, "The options should be available through the interface")
-            XCTAssertEqual(storeParameters.storeType(), NSSQLiteStoreType, "The store type should be SQLite")
+            XCTAssertTrue(storeParameters.options == nil, "The options should be available through the interface")
+            XCTAssertEqual(storeParameters.storeType, NSSQLiteStoreType, "The store type should be SQLite")
 
         default:
             XCTFail("There should not be another type of store parameters created")
@@ -93,12 +93,12 @@ class StoreParameterTests: XCTestCase {
         case .SQLite(let URL, let configuration, var options):
             XCTAssertEqual(URL, localURL, "The store should use the provided URL")
             XCTAssertEqual(configuration!, sampleConfiguration, "The store parameters should use the provided configuration")
-            XCTAssertEqual(storeParameters.configuration()!, sampleConfiguration, "The configuration should be available through the interface")
-            XCTAssertEqual(options!["alpha"] as String, "bravo", "The store parameters should use the provided options")
-            XCTAssertEqual(options!["charlie"] as String, "delta", "The store parameters should use the provided options")
-            options = storeParameters.options()!
-            XCTAssertEqual(options!["alpha"] as String, "bravo", "The options should be available through the interface")
-            XCTAssertEqual(options!["charlie"] as String, "delta", "The options should be available through the interface")
+            XCTAssertEqual(storeParameters.configuration!, sampleConfiguration, "The configuration should be available through the interface")
+            XCTAssertEqual(options!["alpha"] as! String, "bravo", "The store parameters should use the provided options")
+            XCTAssertEqual(options!["charlie"] as! String, "delta", "The store parameters should use the provided options")
+            options = storeParameters.options!
+            XCTAssertEqual(options!["alpha"] as! String, "bravo", "The options should be available through the interface")
+            XCTAssertEqual(options!["charlie"] as! String, "delta", "The options should be available through the interface")
 
         default:
             XCTFail("There should not be another type of store parameters created")
@@ -110,12 +110,12 @@ class StoreParameterTests: XCTestCase {
         switch storeParameters! {
         case .Binary(let URL, let configuration, let options):
             XCTAssertEqual(URL, localURL, "The store should use the provided URL")
-            XCTAssertEqual(storeParameters.URL()!, localURL, "The URL should be available through the interface")
+            XCTAssertEqual(storeParameters.URL!, localURL, "The URL should be available through the interface")
             XCTAssertTrue(configuration == nil, "The store parameters should not have a configuration")
-            XCTAssertTrue(storeParameters.configuration() == nil, "The configuration should be available through the interface")
+            XCTAssertTrue(storeParameters.configuration == nil, "The configuration should be available through the interface")
             XCTAssertTrue(options == nil, "The store parameters should not have any options")
-            XCTAssertTrue(storeParameters.options() == nil, "The options should be available through the interface")
-            XCTAssertEqual(storeParameters.storeType(), NSBinaryStoreType, "The store type should be binary")
+            XCTAssertTrue(storeParameters.options == nil, "The options should be available through the interface")
+            XCTAssertEqual(storeParameters.storeType, NSBinaryStoreType, "The store type should be binary")
 
         default:
             XCTFail("There should not be another type of store parameters created")
@@ -128,12 +128,12 @@ class StoreParameterTests: XCTestCase {
         case .Binary(let URL, let configuration, var options):
             XCTAssertEqual(URL, localURL, "The store should use the provided URL")
             XCTAssertEqual(configuration!, sampleConfiguration, "The store parameters should use the provided configuration")
-            XCTAssertEqual(storeParameters.configuration()!, sampleConfiguration, "The configuration should be available through the interface")
-            XCTAssertEqual(options!["alpha"] as String, "bravo", "The store parameters should use the provided options")
-            XCTAssertEqual(options!["charlie"] as String, "delta", "The store parameters should use the provided options")
-            options = storeParameters.options()!
-            XCTAssertEqual(options!["alpha"] as String, "bravo", "The options should be available through the interface")
-            XCTAssertEqual(options!["charlie"] as String, "delta", "The options should be available through the interface")
+            XCTAssertEqual(storeParameters.configuration!, sampleConfiguration, "The configuration should be available through the interface")
+            XCTAssertEqual(options!["alpha"] as! String, "bravo", "The store parameters should use the provided options")
+            XCTAssertEqual(options!["charlie"] as! String, "delta", "The store parameters should use the provided options")
+            options = storeParameters.options!
+            XCTAssertEqual(options!["alpha"] as! String, "bravo", "The options should be available through the interface")
+            XCTAssertEqual(options!["charlie"] as! String, "delta", "The options should be available through the interface")
 
         default:
             XCTFail("There should not be another type of store parameters created")
