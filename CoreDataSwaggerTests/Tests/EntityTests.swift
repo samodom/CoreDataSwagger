@@ -53,14 +53,14 @@ class EntityTests: XCTestCase {
 
     func testAllPropertiesRetrieval() {
         let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: stack.context)!
-        let expectedProperties = entity.properties as [NSPropertyDescription]
+        let expectedProperties = entity.properties as! [NSPropertyDescription]
         let properties = stack.propertiesForEntity(named: "Fruit")
         XCTAssertEqual(properties!, expectedProperties, "The properties of the entity described by the provided name should be returned")
     }
 
     func testPropertiesByNameRetrieval() {
         let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: stack.context)!
-        let expectedProperties = entity.propertiesByName as [String:NSPropertyDescription]
+        let expectedProperties = entity.propertiesByName as! [String:NSPropertyDescription]
         let properties = stack.propertiesByNameForEntity(named: "Fruit")
         XCTAssertEqual(properties!, expectedProperties, "The dictionary of properties of the entity described by the provided name should be returned")
     }
@@ -82,7 +82,7 @@ class EntityTests: XCTestCase {
 
     func testSuccessfulPropertiesForClassRetrieval() {
         let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: stack.context)!
-        let expectedProperties = entity.properties as [NSPropertyDescription]
+        let expectedProperties = entity.properties as! [NSPropertyDescription]
         let properties = Fruit.properties(inStack: stack)
         XCTAssertEqual(properties!, expectedProperties, "The properties of the entity associated with the class should be returned")
     }
@@ -99,7 +99,7 @@ class EntityTests: XCTestCase {
 
     func testSuccessfulPropertiesByNameForClassRetrieval() {
         let entity = NSEntityDescription.entityForName("Fruit", inManagedObjectContext: stack.context)!
-        let expectedProperties = entity.propertiesByName as [String:NSPropertyDescription]
+        let expectedProperties = entity.propertiesByName as! [String:NSPropertyDescription]
         let properties = Fruit.propertiesByName(inStack: stack)
         XCTAssertEqual(properties!, expectedProperties, "The properties of the entity associated with the class should be returned")
     }

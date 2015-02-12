@@ -15,7 +15,7 @@ public extension CoreDataStack {
       @return       Entity description objects for all entities contained in this stack's managed object model
     */
     public var entities: [NSEntityDescription] {
-        return model.entities as [NSEntityDescription]
+        return model.entities as! [NSEntityDescription]
     }
 
     /**
@@ -23,7 +23,7 @@ public extension CoreDataStack {
       @return       Entity description objects for all entities contained in this stack's managed object model.
     */
     public var entitiesByName: [String:NSEntityDescription] {
-        return model.entitiesByName as [String:NSEntityDescription]
+        return model.entitiesByName as! [String:NSEntityDescription]
     }
 
     /**

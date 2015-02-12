@@ -19,18 +19,21 @@ public class CoreDataStack {
     public let context: NSManagedObjectContext!
 
     public init?(configuration: CoreDataStackConfiguration = CoreDataStackConfiguration()) {
-        if let modelFromSource = NSManagedObjectModel.createFromSource(configuration.modelSource) {
-            model = modelFromSource
-        }
-        else {
+        let modelFromSource = NSManagedObjectModel.createFromSource(configuration.modelSource)
+        if modelFromSource == nil {
             NSLog("Error creating managed object model")
+            model = nil
+            coordinator = nil
+            context = nil
             return nil
         }
 
+        model = modelFromSource
         coordinator = NSPersistentStoreCoordinator.createWithModel(model, storeParameters: configuration.storeParameters)
 
-        context = NSManagedObjectContext(concurrencyType: configuration.contextConcurrencyType)
-        context.persistentStoreCoordinator = coordinator
+        let tempContext = NSManagedObjectContext(concurrencyType: configuration.contextConcurrencyType)
+        tempContext.persistentStoreCoordinator = coordinator
+        context = tempContext
     }
 
 }

@@ -26,7 +26,7 @@ public extension NSManagedObjectModel {
             return createFromBundleMerge(nil, metadata: metadata)
 
         case .AllBundlesMerge(let metadata):
-            let bundles = NSBundle.allBundles() as [NSBundle]
+            let bundles = NSBundle.allBundles() as! [NSBundle]
             return createFromBundleMerge(bundles, metadata: metadata)
 
         case .BundleMerge(let bundles, let metadata):

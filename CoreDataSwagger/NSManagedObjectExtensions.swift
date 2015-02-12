@@ -20,7 +20,7 @@ public extension NSManagedObject {
             return nil
         }
 
-        for entity in stack.model.entities as [NSEntityDescription] {
+        for entity in stack.model.entities as! [NSEntityDescription] {
             if entity.managedObjectClassName == NSStringFromClass(self) {
                 return entity
             }

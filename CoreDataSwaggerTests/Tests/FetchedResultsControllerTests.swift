@@ -57,16 +57,16 @@ class FetchedResultsControllerTests: XCTestCase {
     }
     
     func testItemSubscriptForObject() {
-        var fruit = flattenedResults[3] as Fruit
+        var fruit = flattenedResults[3] as! Fruit
         XCTAssertEqual(fruit.name, "Kiwi", "The object at the specified row index should be returned using the first section")
-        fruit = sectionedResults[1] as Fruit
+        fruit = sectionedResults[1] as! Fruit
         XCTAssertEqual(fruit.name, "Lime", "The object at the specified row index should be returned using the first section")
     }
 
     func testIndexPathSubscriptForObject() {
-        var fruit = flattenedResults[pathTo_0_0] as Fruit
+        var fruit = flattenedResults[pathTo_0_0] as! Fruit
         XCTAssertEqual(fruit.name, "Apple", "The object at the specified index path should be returned")
-        fruit = sectionedResults[pathTo_2_1] as Fruit
+        fruit = sectionedResults[pathTo_2_1] as! Fruit
         XCTAssertEqual(fruit.name, "Pineapple", "The object at the specified index path should be returned")
     }
 

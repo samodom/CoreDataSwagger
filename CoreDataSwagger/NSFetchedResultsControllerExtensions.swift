@@ -17,7 +17,7 @@ public extension NSFetchedResultsController {
     */
     public subscript(item: Int) -> NSManagedObject {
         let indexPath = NSIndexPath(forItem: item, inSection: 0)
-        return objectAtIndexPath(indexPath) as NSManagedObject
+        return objectAtIndexPath(indexPath) as! NSManagedObject
     }
 
     /**
@@ -26,7 +26,7 @@ public extension NSFetchedResultsController {
       @return       Managed object at the specified index path.
     */
     public subscript(indexPath: NSIndexPath) -> NSManagedObject {
-        return objectAtIndexPath(indexPath) as NSManagedObject
+        return objectAtIndexPath(indexPath) as! NSManagedObject
     }
 
 }

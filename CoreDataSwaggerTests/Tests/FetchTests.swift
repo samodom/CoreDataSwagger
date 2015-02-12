@@ -92,15 +92,15 @@ class FetchTests: XCTestCase {
         XCTAssertTrue(error == nil, "There should be no error returned")
         XCTAssertTrue(dictionaryResults != nil, "There should be fetch results returned")
         XCTAssertEqual(dictionaryResults!.count, 3, "There should be three objects returned")
-        var values = dictionaryResults![0] as [NSString:AnyObject]
-        XCTAssertEqual(values["name"] as String, "Apple", "The apple should be included in the results")
-        XCTAssertEqual(values["color"] as String, "red", "The apple should be included in the results")
-        values = dictionaryResults![1] as [NSString:AnyObject]
-        XCTAssertEqual(values["name"] as String, "Banana", "The banana should be included in the results")
-        XCTAssertEqual(values["color"] as String, "yellow", "The banana should be included in the results")
-        values = dictionaryResults![2] as [NSString:AnyObject]
-        XCTAssertEqual(values["name"] as String, "Lettuce", "The lettuce should be included in the results")
-        XCTAssertEqual(values["color"] as String, "green", "The lettuce should be included in the results")
+        var values = dictionaryResults![0] as! [NSString:AnyObject]
+        XCTAssertEqual(values["name"] as! String, "Apple", "The apple should be included in the results")
+        XCTAssertEqual(values["color"] as! String, "red", "The apple should be included in the results")
+        values = dictionaryResults![1] as! [NSString:AnyObject]
+        XCTAssertEqual(values["name"] as! String, "Banana", "The banana should be included in the results")
+        XCTAssertEqual(values["color"] as! String, "yellow", "The banana should be included in the results")
+        values = dictionaryResults![2] as! [NSString:AnyObject]
+        XCTAssertEqual(values["name"] as! String, "Lettuce", "The lettuce should be included in the results")
+        XCTAssertEqual(values["color"] as! String, "green", "The lettuce should be included in the results")
     }
 
     func testFailingDictionaryFetchRequest() {

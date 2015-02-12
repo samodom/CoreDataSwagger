@@ -32,7 +32,7 @@ internal func DeleteFile(atURL URL: NSURL) {
 }
 
 internal func URLofBundledFile(named filename: String, ofType type: String) -> NSURL? {
-    for bundle in NSBundle.allBundles() as [NSBundle] {
+    for bundle in NSBundle.allBundles() as! [NSBundle] {
         let URL = bundle.URLForResource(filename, withExtension: type)
         if URL != nil {
             return URL
@@ -43,7 +43,7 @@ internal func URLofBundledFile(named filename: String, ofType type: String) -> N
 }
 
 internal func BundleForModel(named modelName: String) -> NSBundle! {
-    let allBundles = NSBundle.allBundles() as [NSBundle]
+    let allBundles = NSBundle.allBundles() as! [NSBundle]
     for bundle in allBundles {
         if bundle.bundleURL.path!.rangeOfString(modelName) != nil {
             return bundle

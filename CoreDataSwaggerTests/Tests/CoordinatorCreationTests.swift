@@ -53,7 +53,7 @@ class CoordinatorCreationTests: XCTestCase {
     func testCoordinatorCreationWithStores() {
         coordinator = NSPersistentStoreCoordinator.createWithModel(model, storeParameters: storeParameters)
         XCTAssertEqual(coordinator.managedObjectModel, model, "The coordinator should use the model provided")
-        let stores = coordinator.persistentStores as [NSPersistentStore]
+        let stores = coordinator.persistentStores as! [NSPersistentStore]
         XCTAssertEqual(stores.count, 3, "The coordinator should have three persistent stores")
         XCTAssertEqual(stores[0].type, NSInMemoryStoreType, "There should be an in-memory store created")
         XCTAssertEqual(stores[1].type, NSSQLiteStoreType, "There should be a SQLite store created")
@@ -67,7 +67,7 @@ class CoordinatorCreationTests: XCTestCase {
         createDefaultStoreParameters()
         coordinator = NSPersistentStoreCoordinator.createWithModel(model, storeParameters: storeParameters)
         XCTAssertEqual(coordinator.managedObjectModel, model, "The coordinator should use the model provided")
-        let stores = coordinator.persistentStores as [NSPersistentStore]
+        let stores = coordinator.persistentStores as! [NSPersistentStore]
         XCTAssertEqual(stores.count, 2, "The coordinator should have two persistent stores")
         XCTAssertEqual(stores[0].type, NSInMemoryStoreType, "There should be an in-memory store created")
         XCTAssertEqual(stores[1].type, NSSQLiteStoreType, "There should be a SQLite store created")
@@ -84,25 +84,25 @@ class CoordinatorCreationTests: XCTestCase {
     func testCoordinatorCreationWithCustomStores() {
         coordinator = NSPersistentStoreCoordinator.createWithModel(model, storeParameters: storeParameters)
         XCTAssertEqual(coordinator.managedObjectModel, model, "The coordinator should use the model provided")
-        let allStores = coordinator.persistentStores as [NSPersistentStore]
+        let allStores = coordinator.persistentStores as! [NSPersistentStore]
         XCTAssertEqual(allStores.count, 3, "The coordinator should have three persistent stores")
 
         var store = allStores[0]
         XCTAssertEqual(store.type, NSInMemoryStoreType, "There should be an in-memory store created")
         XCTAssertEqual(store.configurationName, "Alternate", "The store should be created with the provided configuration")
-        XCTAssertEqual(store.options![NSPersistentStoreTimeoutOption] as Int, 3, "The store should be created with the provided options")
+        XCTAssertEqual(store.options![NSPersistentStoreTimeoutOption] as! Int, 3, "The store should be created with the provided options")
 
         store = allStores[1]
         XCTAssertEqual(store.type, NSSQLiteStoreType, "There should be a SQLite store created")
         XCTAssertEqual(store.URL!, sqliteStoreURL, "The SQLite store should use the provided URL")
         XCTAssertEqual(store.configurationName, "Alternate", "The store should be created with the provided configuration")
-        XCTAssertEqual(store.options![NSPersistentStoreTimeoutOption] as Int, 3, "The store should be created with the provided options")
+        XCTAssertEqual(store.options![NSPersistentStoreTimeoutOption] as! Int, 3, "The store should be created with the provided options")
 
         store = allStores[2]
         XCTAssertEqual(store.type, NSBinaryStoreType, "There should be a binary store created")
         XCTAssertEqual(store.URL!, binaryStoreURL, "The binary store should use the provided URL")
         XCTAssertEqual(store.configurationName, "Alternate", "The store should be created with the provided configuration")
-        XCTAssertEqual(store.options![NSPersistentStoreTimeoutOption] as Int, 3, "The store should be created with the provided options")
+        XCTAssertEqual(store.options![NSPersistentStoreTimeoutOption] as! Int, 3, "The store should be created with the provided options")
     }
 
 }

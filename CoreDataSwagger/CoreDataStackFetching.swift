@@ -19,7 +19,7 @@ public extension CoreDataStack {
     public func fetch(request: NSFetchRequest) -> CoreDataObjectFetchResults {
         assert(request.resultType == .ManagedObjectResultType, "The fetch request must be configured to return managed objects")
         var error: NSError?
-        let results = context.executeFetchRequest(request, error: &error) as [NSManagedObject]?
+        let results = context.executeFetchRequest(request, error: &error) as! [NSManagedObject]?
         return (results, error)
     }
 
@@ -32,7 +32,7 @@ public extension CoreDataStack {
     public func fetchIDs(request: NSFetchRequest) -> CoreDataObjectIDFetchResults {
         assert(request.resultType == .ManagedObjectIDResultType, "The fetch request must be configured to return managed object identifiers")
         var error: NSError?
-        let results = context.executeFetchRequest(request, error: &error) as [NSManagedObjectID]?
+        let results = context.executeFetchRequest(request, error: &error) as! [NSManagedObjectID]?
         return (results, error)
     }
 
@@ -74,7 +74,7 @@ public extension CoreDataStack {
     public func fetch(entityName: String) -> CoreDataObjectFetchResults {
         let request = NSFetchRequest(entityName: entityName)
         var error: NSError?
-        let results = context.executeFetchRequest(request, error: &error) as [NSManagedObject]?
+        let results = context.executeFetchRequest(request, error: &error) as! [NSManagedObject]?
         return (results, error)
     }
 
@@ -87,7 +87,7 @@ public extension CoreDataStack {
         let request = NSFetchRequest()
         request.entity = entityDescription
         var error: NSError?
-        let results = context.executeFetchRequest(request, error: &error) as [NSManagedObject]?
+        let results = context.executeFetchRequest(request, error: &error) as! [NSManagedObject]?
         return (results, error)
     }
 

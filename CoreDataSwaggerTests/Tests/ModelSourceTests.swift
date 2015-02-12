@@ -56,8 +56,8 @@ class ModelSourceTests: XCTestCase {
             XCTAssert(true, "The source type should be a main bundle merge")
             let cast = metadata as [NSObject:AnyObject]!  //  FIXME: why do I have to cast this?
             XCTAssertEqual(cast.count, 2, "The provided dictionary had two members")
-            XCTAssertEqual(cast["one"] as String, "two", "The source should use the metadata provided")
-            XCTAssertEqual(cast["three"] as String, "four", "The source should use the metadata provided")
+            XCTAssertEqual(cast["one"] as! String, "two", "The source should use the metadata provided")
+            XCTAssertEqual(cast["three"] as! String, "four", "The source should use the metadata provided")
 
         default:
             XCTFail("The source type created should be a main bundle merge")
@@ -83,8 +83,8 @@ class ModelSourceTests: XCTestCase {
             let data = metadata as CoreDataStoreMetaData!  //  FIXME: why do I have to do this?
             XCTAssert(true, "The source type should be an all bundles merge")
             XCTAssertEqual(data.count, 2, "The provided dictionary had two members")
-            XCTAssertEqual(data["one"] as String, "two", "The source should use the metadata provided")
-            XCTAssertEqual(data["three"] as String, "four", "The source should use the metadata provided")
+            XCTAssertEqual(data["one"] as! String, "two", "The source should use the metadata provided")
+            XCTAssertEqual(data["three"] as! String, "four", "The source should use the metadata provided")
 
         default:
             XCTFail("The source type created should be an all bundles merge")
@@ -111,8 +111,8 @@ class ModelSourceTests: XCTestCase {
             XCTAssert(true, "The source type should be a bundle merge")
             XCTAssertEqual(bundles!, sampleBundles, "The source should use the bundles provided")
             XCTAssertEqual(metadata!.count, 2, "The provided dictionary had two members")
-            XCTAssertEqual(metadata!["one"] as String, "two", "The source should use the metadata provided")
-            XCTAssertEqual(metadata!["three"] as String, "four", "The source should use the metadata provided")
+            XCTAssertEqual(metadata!["one"] as! String, "two", "The source should use the metadata provided")
+            XCTAssertEqual(metadata!["three"] as! String, "four", "The source should use the metadata provided")
 
         default:
             XCTFail("The source type created should be a bundle merge")
@@ -139,8 +139,8 @@ class ModelSourceTests: XCTestCase {
             XCTAssert(true, "The source type should be a model merge")
             XCTAssertEqual(models, sampleModels, "The source should use the models provided")
             XCTAssertEqual(metadata!.count, 2, "The provided dictionary had two members")
-            XCTAssertEqual(metadata!["one"] as String, "two", "The source should use the metadata provided")
-            XCTAssertEqual(metadata!["three"] as String, "four", "The source should use the metadata provided")
+            XCTAssertEqual(metadata!["one"] as! String, "two", "The source should use the metadata provided")
+            XCTAssertEqual(metadata!["three"] as! String, "four", "The source should use the metadata provided")
 
         default:
             XCTFail("The source type created should be a bundle merge")
