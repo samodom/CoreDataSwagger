@@ -40,6 +40,7 @@
 		0ABBC4F719FEA842004E562A /* ModelCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBC4F619FEA842004E562A /* ModelCreationTests.swift */; };
 		0ADB48821A1C5055005ED25C /* NSManagedObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB48811A1C5055005ED25C /* NSManagedObjectExtensions.swift */; };
 		0ADB48831A1C5055005ED25C /* NSManagedObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB48811A1C5055005ED25C /* NSManagedObjectExtensions.swift */; };
+		0AF39D741A1F0ED100BBE1C7 /* FetchedResultsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF39D731A1F0ED100BBE1C7 /* FetchedResultsControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		0A71197619F72EBE001764AF /* FetchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchTests.swift; sourceTree = "<group>"; };
 		0ABBC4F619FEA842004E562A /* ModelCreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCreationTests.swift; sourceTree = "<group>"; };
 		0ADB48811A1C5055005ED25C /* NSManagedObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtensions.swift; sourceTree = "<group>"; };
+		0AF39D731A1F0ED100BBE1C7 /* FetchedResultsControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				0A518A931A01E65700CC2C2A /* CoordinatorCreationTests.swift */,
 				0A5F062E1A05526500DEAEC9 /* DeleteTests.swift */,
 				0A6E31D71A053F5500B54A54 /* EntityTests.swift */,
+				0AF39D731A1F0ED100BBE1C7 /* FetchedResultsControllerTests.swift */,
 				0A71197619F72EBE001764AF /* FetchTests.swift */,
 				0ABBC4F619FEA842004E562A /* ModelCreationTests.swift */,
 				0A151C4E19FA021A00EB2DB3 /* ModelSourceTests.swift */,
@@ -335,6 +338,7 @@
 				0A5758FD19F5ECBC00B08295 /* Produce.swift in Sources */,
 				0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */,
 				0A12BB8519EB3EEE00859D0A /* StackCreationTests.swift in Sources */,
+				0AF39D741A1F0ED100BBE1C7 /* FetchedResultsControllerTests.swift in Sources */,
 				0A5F062F1A05526500DEAEC9 /* DeleteTests.swift in Sources */,
 				0A6E31DB1A0541C400B54A54 /* CoreDataStackFetching.swift in Sources */,
 				0A151C4F19FA021A00EB2DB3 /* ModelSourceTests.swift in Sources */,
