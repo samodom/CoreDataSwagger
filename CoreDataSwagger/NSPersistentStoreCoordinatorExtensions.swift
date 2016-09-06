@@ -28,6 +28,7 @@ public extension NSPersistentStoreCoordinator {
             }
 
             var error: NSError?
+            println("Adding persistent store with options: \(parameters.options)")
             coordinator.addPersistentStoreWithType(parameters.storeType, configuration: parameters.configuration, URL: URL, options: parameters.options, error: &error)
 
             if error != nil {
