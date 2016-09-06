@@ -21,6 +21,11 @@
 		0A151C4B19F9DABA00EB2DB3 /* CoreDataStackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A151C4919F9D9E400EB2DB3 /* CoreDataStackConfiguration.swift */; };
 		0A151C4F19FA021A00EB2DB3 /* ModelSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A151C4E19FA021A00EB2DB3 /* ModelSourceTests.swift */; };
 		0A151C5119FA0D4300EB2DB3 /* StoreParameterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A151C5019FA0D4300EB2DB3 /* StoreParameterTests.swift */; };
+		0A2DD5351A16B167002E0FDE /* ManagedObjectFetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2DD5341A16B167002E0FDE /* ManagedObjectFetchTests.swift */; };
+		0A2DD5371A16B4A4002E0FDE /* NSManagedObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2DD5361A16B4A4002E0FDE /* NSManagedObjectExtensions.swift */; };
+		0A2DD5381A16B4BE002E0FDE /* NSManagedObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2DD5361A16B4A4002E0FDE /* NSManagedObjectExtensions.swift */; };
+		0A2DD53A1A16C4D5002E0FDE /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2DD5391A16C4D5002E0FDE /* Errors.swift */; };
+		0A2DD53B1A16C507002E0FDE /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2DD5391A16C4D5002E0FDE /* Errors.swift */; };
 		0A518A941A01E65700CC2C2A /* CoordinatorCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A518A931A01E65700CC2C2A /* CoordinatorCreationTests.swift */; };
 		0A518A961A01E70F00CC2C2A /* NSPersistentStoreCoordinatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A518A951A01E70F00CC2C2A /* NSPersistentStoreCoordinatorExtensions.swift */; };
 		0A518A971A01E7D100CC2C2A /* NSPersistentStoreCoordinatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A518A951A01E70F00CC2C2A /* NSPersistentStoreCoordinatorExtensions.swift */; };
@@ -65,6 +70,9 @@
 		0A151C4919F9D9E400EB2DB3 /* CoreDataStackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackConfiguration.swift; sourceTree = "<group>"; };
 		0A151C4E19FA021A00EB2DB3 /* ModelSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSourceTests.swift; sourceTree = "<group>"; };
 		0A151C5019FA0D4300EB2DB3 /* StoreParameterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreParameterTests.swift; sourceTree = "<group>"; };
+		0A2DD5341A16B167002E0FDE /* ManagedObjectFetchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectFetchTests.swift; sourceTree = "<group>"; };
+		0A2DD5361A16B4A4002E0FDE /* NSManagedObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtensions.swift; sourceTree = "<group>"; };
+		0A2DD5391A16C4D5002E0FDE /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		0A518A931A01E65700CC2C2A /* CoordinatorCreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorCreationTests.swift; sourceTree = "<group>"; };
 		0A518A951A01E70F00CC2C2A /* NSPersistentStoreCoordinatorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPersistentStoreCoordinatorExtensions.swift; sourceTree = "<group>"; };
 		0A518A981A01E92E00CC2C2A /* TestingHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingHelpers.swift; sourceTree = "<group>"; };
@@ -126,9 +134,11 @@
 				0A6E31DC1A0542BA00B54A54 /* CoreDataStackEntities.swift */,
 				0A6E31D91A05415F00B54A54 /* CoreDataStackFetching.swift */,
 				0A12BB6A19EB3C4700859D0A /* CoreDataSwagger.h */,
+				0A2DD5361A16B4A4002E0FDE /* NSManagedObjectExtensions.swift */,
 				0A07EEA819FEAFE000ADB3F6 /* NSManagedObjectModelExtensions.swift */,
 				0A518A951A01E70F00CC2C2A /* NSPersistentStoreCoordinatorExtensions.swift */,
 				0A12BB6819EB3C4700859D0A /* Supporting Files */,
+				0A2DD5391A16C4D5002E0FDE /* Errors.swift */,
 			);
 			path = CoreDataSwagger;
 			sourceTree = "<group>";
@@ -168,6 +178,7 @@
 				0A5F062E1A05526500DEAEC9 /* DeleteTests.swift */,
 				0A6E31D71A053F5500B54A54 /* EntityTests.swift */,
 				0A71197619F72EBE001764AF /* FetchTests.swift */,
+				0A2DD5341A16B167002E0FDE /* ManagedObjectFetchTests.swift */,
 				0ABBC4F619FEA842004E562A /* ModelCreationTests.swift */,
 				0A151C4E19FA021A00EB2DB3 /* ModelSourceTests.swift */,
 				0A5758F319F5E9F300B08295 /* SaveTests.swift */,
@@ -318,6 +329,8 @@
 				0A518A961A01E70F00CC2C2A /* NSPersistentStoreCoordinatorExtensions.swift in Sources */,
 				0A6E31DA1A05415F00B54A54 /* CoreDataStackFetching.swift in Sources */,
 				0A12BB8719EB481400859D0A /* CoreDataStack.swift in Sources */,
+				0A2DD53A1A16C4D5002E0FDE /* Errors.swift in Sources */,
+				0A2DD5371A16B4A4002E0FDE /* NSManagedObjectExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A12BB8F19EB52C100859D0A /* SampleModelTwo.xcdatamodeld in Sources */,
+				0A2DD5351A16B167002E0FDE /* ManagedObjectFetchTests.swift in Sources */,
 				0A12BB8C19EB49AD00859D0A /* SampleModelOne.xcdatamodeld in Sources */,
 				0A5758FD19F5ECBC00B08295 /* Produce.swift in Sources */,
 				0A5758FB19F5EC9800B08295 /* Produce.xcdatamodeld in Sources */,
@@ -339,6 +353,8 @@
 				0A151C5119FA0D4300EB2DB3 /* StoreParameterTests.swift in Sources */,
 				0A6E31D81A053F5500B54A54 /* EntityTests.swift in Sources */,
 				0A518A941A01E65700CC2C2A /* CoordinatorCreationTests.swift in Sources */,
+				0A2DD5381A16B4BE002E0FDE /* NSManagedObjectExtensions.swift in Sources */,
+				0A2DD53B1A16C507002E0FDE /* Errors.swift in Sources */,
 				0A518A971A01E7D100CC2C2A /* NSPersistentStoreCoordinatorExtensions.swift in Sources */,
 				0A518A991A01E92E00CC2C2A /* TestingHelpers.swift in Sources */,
 				0A5758F419F5E9F300B08295 /* SaveTests.swift in Sources */,

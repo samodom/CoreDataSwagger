@@ -151,7 +151,7 @@ class FetchTests: XCTestCase {
         XCTAssertTrue(contains(objectResults!, apple), "The apple should be included in the results")
         XCTAssertTrue(contains(objectResults!, banana), "The banana should be included in the results")
     }
-    
+
 }
 
 private func GetNameAndColorProperties(inContext context: NSManagedObjectContext) -> [NSPropertyDescription] {
